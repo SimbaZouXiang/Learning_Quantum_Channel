@@ -1,0 +1,12 @@
+contourpy==1.3.3+computecanada
+cycler==0.12.1+computecanada
+fonttools==4.62.0+computecanada
+kiwisolver==1.4.9+computecanada
+llvmlite==0.46.0+computecanada
+matplotlib==3.10.8+computecanada
+numba==0.64.0+computecanada
+pillow==12.1.0+computecanada
+pyparsing==3.3.2+computecanada
+python_dateutil==2.9.0.post0+computecanada
+scipy==1.17.0+computecanada
+six==1.17.0+computecanada

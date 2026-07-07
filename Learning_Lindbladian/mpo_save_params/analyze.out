@@ -1,0 +1,48 @@
+
+=== L=3 p=0.01 ===
+  weight1_full     ||w1-tgt||=1.5848e-05  ||cmb-tgt||=1.7769e-05  ||w1-cmb||=3.3502e-05
+  weight2_full     ||w1-tgt||=2.0839e-05  ||cmb-tgt||=2.3031e-05  ||w1-cmb||=4.3780e-05
+  random_500       ||w1-tgt||=2.3403e-05  ||cmb-tgt||=2.5451e-05  ||w1-cmb||=4.8786e-05
+
+=== L=3 p=0.05 ===
+  weight1_full     ||w1-tgt||=1.9505e-05  ||cmb-tgt||=3.2152e-06  ||w1-cmb||=2.2708e-05
+  weight2_full     ||w1-tgt||=2.0483e-05  ||cmb-tgt||=3.4568e-06  ||w1-cmb||=2.3929e-05
+  random_500       ||w1-tgt||=1.9981e-05  ||cmb-tgt||=3.4498e-06  ||w1-cmb||=2.3423e-05
+
+=== L=4 p=0.01 ===
+  weight1_full     ||w1-tgt||=7.5348e-01  ||cmb-tgt||=8.2028e-01  ||w1-cmb||=6.5119e-01
+  weight2_full     ||w1-tgt||=7.9641e-01  ||cmb-tgt||=8.1602e-01  ||w1-cmb||=6.1818e-01
+  random_500       ||w1-tgt||=7.7532e-01  ||cmb-tgt||=7.8517e-01  ||w1-cmb||=5.6578e-01
+
+=== L=4 p=0.05 ===
+  weight1_full     ||w1-tgt||=3.3953e-01  ||cmb-tgt||=4.3367e-01  ||w1-cmb||=2.8081e-01
+  weight2_full     ||w1-tgt||=2.7037e-01  ||cmb-tgt||=3.1153e-01  ||w1-cmb||=1.7331e-01
+  random_500       ||w1-tgt||=2.3356e-01  ||cmb-tgt||=2.7736e-01  ||w1-cmb||=1.5816e-01
+
+=== L=5 p=0.01 ===
+  weight1_full     ||w1-tgt||=7.8636e-01  ||cmb-tgt||=7.8607e-01  ||w1-cmb||=5.7401e-01
+  weight2_full     ||w1-tgt||=7.8066e-01  ||cmb-tgt||=7.5790e-01  ||w1-cmb||=5.1807e-01
+  random_500       ||w1-tgt||=7.5296e-01  ||cmb-tgt||=7.2554e-01  ||w1-cmb||=4.7778e-01
+
+=== L=5 p=0.05 ===
+  weight1_full     ||w1-tgt||=2.7849e-01  ||cmb-tgt||=3.0197e-01  ||w1-cmb||=1.3112e-01
+  weight2_full     ||w1-tgt||=1.9794e-01  ||cmb-tgt||=2.0306e-01  ||w1-cmb||=7.6585e-02
+  random_500       ||w1-tgt||=1.6992e-01  ||cmb-tgt||=1.7932e-01  ||w1-cmb||=7.0648e-02
+
+=== L=6 p=0.01 ===
+  weight1_full     ||w1-tgt||=7.8017e-01  ||cmb-tgt||=8.7755e-01  ||w1-cmb||=6.5785e-01
+  weight2_full     ||w1-tgt||=7.3239e-01  ||cmb-tgt||=8.0251e-01  ||w1-cmb||=5.6142e-01
+  random_500       ||w1-tgt||=7.0104e-01  ||cmb-tgt||=7.7622e-01  ||w1-cmb||=5.3500e-01
+
+=== L=6 p=0.05 ===
+  weight1_full     ||w1-tgt||=1.9031e-01  ||cmb-tgt||=2.0359e-01  ||w1-cmb||=6.6577e-02
+  weight2_full     ||w1-tgt||=1.3163e-01  ||cmb-tgt||=1.3572e-01  ||w1-cmb||=3.4981e-02
+  random_500       ||w1-tgt||=1.1280e-01  ||cmb-tgt||=1.1777e-01  ||w1-cmb||=3.1831e-02
+
+=== L=7 p=0.01 ===
+  weight1_full     ||w1-tgt||=8.1455e-01  ||cmb-tgt||=8.3774e-01  ||w1-cmb||=7.1075e-01
+  weight2_full     ||w1-tgt||=7.6049e-01  ||cmb-tgt||=7.6144e-01  ||w1-cmb||=6.3911e-01
+  random_500       ||w1-tgt||=7.2806e-01  ||cmb-tgt||=7.3918e-01  ||w1-cmb||=6.1317e-01
+
+=== L=7 p=0.05 ===
+  weight1_full     ||w1-tgt||=1.3366e-01  ||cmb-tgt||=1.4080e-01  ||w1-cmb||=3.9682e-02

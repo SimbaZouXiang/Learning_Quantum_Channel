@@ -1,0 +1,27 @@
+# caches / junk
+__pycache__/
+*.pyc
+.bash_history
+core.*
+
+# bulk data & results — regenerate or archive separately (tens of thousands
+# of .npy/.npz files; GitHub is for the code, not the data)
+*.npy
+*.npz
+*.pt
+Learning_Lindbladian/Learning_data/
+Learning_Lindbladian/Learning_result/
+Learning_Lindbladian/Trotterization/
+Learning_Lindbladian/Wrong_data/
+Learning_result/
+Result_random_unitary/
+Learning_random_unitary/random_training_set/
+Learning_with_bath/npy_outputs/
+
+# SLURM logs
+slurm_outputs/
+slurm_out/
+slurm-*.out
+
+# the inner zero-commit git repo, if you choose to keep it disabled
+.git.disabled/

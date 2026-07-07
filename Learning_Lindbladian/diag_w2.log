@@ -1,0 +1,189 @@
+=== Train PQC at N=8, T=3, L=3 with weight-2 inputs (200 epochs) ===
+Generating MPS datasets locally (input_pauli_weight=2)...
+Processing MPS 1/84
+Processing MPS 2/84
+Processing MPS 3/84
+Processing MPS 4/84
+Processing MPS 5/84
+Processing MPS 6/84
+Processing MPS 7/84
+Processing MPS 8/84
+Processing MPS 9/84
+Processing MPS 10/84
+Processing MPS 11/84
+Processing MPS 12/84
+Processing MPS 13/84
+Processing MPS 14/84
+Processing MPS 15/84
+Processing MPS 16/84
+Processing MPS 17/84
+Processing MPS 18/84
+Processing MPS 19/84
+Processing MPS 20/84
+Processing MPS 21/84
+Processing MPS 22/84
+Processing MPS 23/84
+Processing MPS 24/84
+Processing MPS 25/84
+Processing MPS 26/84
+Processing MPS 27/84
+Processing MPS 28/84
+Processing MPS 29/84
+Processing MPS 30/84
+Processing MPS 31/84
+Processing MPS 32/84
+Processing MPS 33/84
+Processing MPS 34/84
+Processing MPS 35/84
+Processing MPS 36/84
+Processing MPS 37/84
+Processing MPS 38/84
+Processing MPS 39/84
+Processing MPS 40/84
+Processing MPS 41/84
+Processing MPS 42/84
+Processing MPS 43/84
+Processing MPS 44/84
+Processing MPS 45/84
+Processing MPS 46/84
+Processing MPS 47/84
+Processing MPS 48/84
+Processing MPS 49/84
+Processing MPS 50/84
+Processing MPS 51/84
+Processing MPS 52/84
+Processing MPS 53/84
+Processing MPS 54/84
+Processing MPS 55/84
+Processing MPS 56/84
+Processing MPS 57/84
+Processing MPS 58/84
+Processing MPS 59/84
+Processing MPS 60/84
+Processing MPS 61/84
+Processing MPS 62/84
+Processing MPS 63/84
+Processing MPS 64/84
+Processing MPS 65/84
+Processing MPS 66/84
+Processing MPS 67/84
+Processing MPS 68/84
+Processing MPS 69/84
+Processing MPS 70/84
+Processing MPS 71/84
+Processing MPS 72/84
+Processing MPS 73/84
+Processing MPS 74/84
+Processing MPS 75/84
+Processing MPS 76/84
+Processing MPS 77/84
+Processing MPS 78/84
+Processing MPS 79/84
+Processing MPS 80/84
+Processing MPS 81/84
+Processing MPS 82/84
+Processing MPS 83/84
+Processing MPS 84/84
+84 84
+Loss at epoch 0: 1.3074617018411743
+Learning rate at epoch 0: 0.05
+Loss at epoch 1: 1.0095158510143416
+Learning rate at epoch 1: 0.05
+Loss at epoch 2: 0.9140375834631337
+Learning rate at epoch 2: 0.05
+Loss at epoch 3: 0.8958730531806289
+Learning rate at epoch 3: 0.05
+Loss at epoch 4: 0.8925626584940447
+Learning rate at epoch 4: 0.05
+Loss at epoch 5: 0.891478803533266
+Learning rate at epoch 5: 0.05
+Loss at epoch 6: 0.8910170703761215
+Learning rate at epoch 6: 0.05
+Loss at epoch 7: 0.8908424610257091
+Learning rate at epoch 7: 0.05
+Loss at epoch 8: 0.8907432003299652
+Learning rate at epoch 8: 0.05
+Loss at epoch 9: 0.8906750445258008
+Learning rate at epoch 9: 0.05
+Loss at epoch 10: 0.8906122078243932
+Learning rate at epoch 10: 0.05
+Loss at epoch 11: 0.8905399995815645
+Learning rate at epoch 11: 0.05
+Loss at epoch 12: 0.8904511965027821
+Learning rate at epoch 12: 0.05
+Loss at epoch 13: 0.8903485026883399
+Learning rate at epoch 13: 0.05
+Loss at epoch 14: 0.8902484681510772
+Learning rate at epoch 14: 0.05
+Loss at epoch 15: 0.8901251787226744
+Learning rate at epoch 15: 0.05
+Loss at epoch 16: 0.8900099688430978
+Learning rate at epoch 16: 0.05
+Loss at epoch 17: 0.8898855292994886
+Learning rate at epoch 17: 0.05
+Loss at epoch 18: 0.8897475247576695
+Learning rate at epoch 18: 0.05
+Loss at epoch 19: 0.8896065539348668
+Learning rate at epoch 19: 0.05
+Loss at epoch 20: 0.8894676499092
+Learning rate at epoch 20: 0.05
+Loss at epoch 21: 0.889333235378104
+Learning rate at epoch 21: 0.05
+Loss at epoch 22: 0.8892002902105399
+Learning rate at epoch 22: 0.05
+Loss at epoch 23: 0.8890617844143784
+Learning rate at epoch 23: 0.05
+Loss at epoch 24: 0.8889141802859206
+Learning rate at epoch 24: 0.05
+Loss at epoch 25: 0.8887598733990927
+Learning rate at epoch 25: 0.05
+Loss at epoch 26: 0.8886013655713602
+Learning rate at epoch 26: 0.05
+Loss at epoch 27: 0.8884360320455824
+Learning rate at epoch 27: 0.05
+Loss at epoch 28: 0.8882620916899697
+Learning rate at epoch 28: 0.05
+Loss at epoch 29: 0.8880885250888882
+Learning rate at epoch 29: 0.05
+Loss at epoch 30: 0.887928445921177
+Learning rate at epoch 30: 0.05
+Loss at epoch 31: 0.8877781493555112
+Learning rate at epoch 31: 0.05
+Loss at epoch 32: 0.8876195573619521
+Learning rate at epoch 32: 0.05
+Loss at epoch 33: 0.8874443555802929
+Learning rate at epoch 33: 0.05
+Loss at epoch 34: 0.887252977829949
+Learning rate at epoch 34: 0.05
+Loss at epoch 35: 0.8870360371054543
+Learning rate at epoch 35: 0.05
+Loss at epoch 36: 0.8867845305114057
+Learning rate at epoch 36: 0.05
+Loss at epoch 37: 0.8865141690344777
+Learning rate at epoch 37: 0.05
+Loss at epoch 38: 0.886228830899279
+Learning rate at epoch 38: 0.05
+Loss at epoch 39: 0.8859204071913608
+Learning rate at epoch 39: 0.05
+Loss at epoch 40: 0.8855904240705635
+Learning rate at epoch 40: 0.05
+Loss at epoch 41: 0.8852166191495182
+Learning rate at epoch 41: 0.05
+Loss at epoch 42: 0.8848068609208762
+Learning rate at epoch 42: 0.05
+Loss at epoch 43: 0.8843566921852448
+Learning rate at epoch 43: 0.05
+Loss at epoch 44: 0.8838922681675903
+Learning rate at epoch 44: 0.05
+Loss at epoch 45: 0.8834279362755039
+Learning rate at epoch 45: 0.05
+Loss at epoch 46: 0.8829345014817288
+Learning rate at epoch 46: 0.05
+Loss at epoch 47: 0.8823942706808158
+Learning rate at epoch 47: 0.05
+Loss at epoch 48: 0.8818089793553952
+Learning rate at epoch 48: 0.05
+Loss at epoch 49: 0.8811847407130505
+Learning rate at epoch 49: 0.05
+Loss at epoch 50: 0.8803416044774405
+Learning rate at epoch 50: 0.05

@@ -1,0 +1,32 @@
+{
+  "N": 8,
+  "T_student": 3,
+  "L_target": 10,
+  "mu": 1,
+  "gamma": 0.06,
+  "gamma_vec": [
+    0.06,
+    0.06,
+    0.06,
+    0.06,
+    0.06,
+    0.06,
+    0.06,
+    0.06
+  ],
+  "J": 1,
+  "t": 2.0,
+  "variant": "combined",
+  "input_pauli_weight": "combined",
+  "lr": 0.01,
+  "epochs": 200,
+  "max_bd": 64,
+  "max_err": 1e-06,
+  "truncation": false,
+  "use_compressed": false,
+  "use_scheduler": true,
+  "noise_type": "dephasing",
+  "random_seed": 12345,
+  "elapsed_seconds": 7689.1096522808075,
+  "final_testing_loss": 0.8100884765516887
+}
