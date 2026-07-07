@@ -1,0 +1,85 @@
+We hypothesize that the learnability of a quantum channel is significantly related to the quantum magic attainable from the parametrized quantum circuits (PQC). There are many monotones in magic quantity, as we are working in operator space, including operator-stabilizer Rényi entropy (OSE). We quote the definition of OSE of an operator $A$ below.
+
+\begin{equation}
+    M^{(\alpha)}(A) := S^{(\alpha)}\left(\left\{ ([1/D]Tr[AP_i])^2\right\}_{P_i\in\mathcal{P}_N}\right)
+\end{equation}
+Where $\mathcal{P}_N$ is the set of all pauli operators of length $N$ and $S^{(\alpha)}$ represents the $\alpha$-Rényi entropy.
+
+Since we are working in the Pauli Operator Basis of the channel by using the Pauli Transfer Matrix (PTM) $R_{\mu\nu}$. Representing the channel as $\E$ and $\{P_i\}$ as the set of pauli operators, we have
+
+\begin{equation}
+    \E(P_j) = \sum_iR_{ij}P_j
+\end{equation}
+
+Hence, to calculate $M^{(\alpha)}(\E(P_j))$, we first get
+\begin{equation}
+\begin{split}
+    Tr[\E(P_i)P_j]&=Tr\left[\sum_kR_{ik}P_k P_j\right]\\
+    &=\sum_kR_{ik}Tr\left[P_kP_j\right]\\
+    &=\sum_kR_{ik}\delta_{jk}\\
+    &=R_{ij}
+\end{split}
+\end{equation}
+
+Therefore,
+\begin{equation}
+\begin{split}
+    M^{(\alpha)}(\E(P_i))&=S^{(\alpha)}\left(\left\{ ([1/D]Tr[\E(P_i)P_j])^2\right\}_{P_j\in\mathcal{P}_N}\right)\\
+    &=S^{(\alpha)}\left(\left\{ ([1/D]R_{ij})^2\right\}_{P_j\in\mathcal{P}_N}\right)\\
+    &=\frac{1}{1-\alpha}\log_2\left[\sum_j \left(\frac{\left((1/D){R_{ij}}\right)^2}{\sum_j\left((1/D){R_{ij}}\right)^2}\right)^\alpha\right]\\
+    &=\frac{1}{1-\alpha}\log_2\left[\sum_j \left(\frac{\left({R_{ij}}\right)^2}{\sum_j\left({R_{ij}}\right)^2}\right)^\alpha\right]\\
+    &=\frac{1}{1-\alpha}\log_2\left[ \frac{\sum_j\left({R_{ij}}\right)^{2\alpha}}{\left(\sum_j\left({R_{ij}}\right)^2\right)^\alpha}\right]
+\end{split}
+\end{equation}
+
+Here, let $D=|\mathcal{P}_N|$, let us define the expected value for the OSE to be
+
+\begin{equation}
+\begin{split}
+    &M^{(\alpha)}(\E)\\
+    &=M^{(\alpha)}\left(\frac{\sum_i\E(P_i)}{\sum_i}\right) = M^{(\alpha)}\left(\frac{\sum_i\E(P_i)}{D}\right)\\
+    &=S^{(\alpha)}\left(\left\{ \left([1/D]Tr\left[\frac{\sum_i\E(P_i)}{D}P_j\right]\right)^2\right\}_{P_j\in\mathcal{P}_N}\right)\\
+    &=S^{(\alpha)}\left(\left\{ \left([1/D^2]\sum_iR_{ij}\right)^2\right\}_{P_j\in\mathcal{P}_N}\right)\\
+    &=\frac{1}{1-\alpha}\log_2\left[\sum_j \left(\frac{\left((1/D^2)\sum_i{R_{ij}}\right)^2}{\sum_j\left((1/D^2){\sum_iR_{ij}}\right)^2}\right)^\alpha\right]\\
+    &=\frac{1}{1-\alpha}\log_2\left[ \left(\frac{\sum_j\left(\sum_i{R_{ij}}\right)^2}{\sum_j\sum_i\left({R_{ij}}\right)^2}\right)^\alpha\right]\\
+    &=\frac{1}{1-\alpha}\log_2\left[ \frac{\sum_j\left(\sum_i{R_{ij}}\right)^{2\alpha}}{\norm{R}_F^\alpha}\right]\\
+    &=\frac{1}{1-\alpha}\left\{ \log_2\left[ \sum_j\left(\sum_i{R_{ij}}\right)^{2\alpha}\right] -\alpha\log_2\left[ \norm{R}_F\right]\right\}
+\end{split}
+\label{eq:OSE_bound_channel_frobenius}
+\end{equation}
+
+Here, we need to use the fact that Rényi-entropy, $S^{(\alpha)}$, of a fixed discrete distribution $p=\{p_i\}$, then, $S^{(\alpha)}$ is non-increasing in the order parameter $\alpha$, which means, for integer $\alpha, \beta$, such that, $2<\alpha\le\beta<\infty$, $S^{(\alpha)}\ge S^{(\beta)}$. Thus, plugging into equation~\ref{eq:OSE_bound_channel_frobenius}, we have
+
+\begin{equation}
+\begin{split}
+    &M^{(\alpha)}(\E)\ge M^{(\infty)}(\E)\\
+\end{split}
+\end{equation}
+
+Here, the second term in equation~\ref{eq:OSE_bound_channel_frobenius} is quite trivial when we take the limit $\lim_{\alpha\rightarrow \infty}$
+
+\begin{equation}
+    \lim_{\alpha\rightarrow \infty}-\frac{\alpha}{1-\alpha}\log_2\left[ \norm{R}_F\right]=\log_2\left[ \norm{R}_F\right]
+\end{equation}
+Now, we need to find the limit for the first term using L'Hopital's rule, and using the fact that $\sum_iR_{ij}\le1$
+
+\begin{equation}
+\begin{split}
+    &\lim_{\alpha\rightarrow \infty}\frac{1}{1-\alpha} \log_2\left[ \sum_j\left(\sum_i{R_{ij}}\right)^{2\alpha}\right]\\
+    &=\lim_{\alpha\rightarrow \infty}-\frac{\sum_j\left(\sum_i R_{ij}\right)^{2\alpha}\log_2\left(\sum_iR_{ij}\right)^2}{\left[ \sum_j\left(\sum_i{R_{ij}}\right)^{2\alpha}\right]}\\
+    & = -2\log_2\left(\max_j\sum_iR_{ij}\right)\\
+\end{split}
+\end{equation}
+
+Note that $-2\log_2\left(\max_j\sum_iR_{ij}\right)$ is almost a constant. Hence, combining our results, we get
+
+\begin{equation}
+    M^{(\alpha)}{\E}\ge M^{(\infty)}{\E}\ge -2\log_2\left(\max_j\sum_iR_{ij}\right) + \log_2\left[ \norm{R}_F\right]
+\end{equation}
+
+Simple reorganizing the terms reveals
+\begin{equation}
+ \norm{R}_F \le 2^{2\log_2\left(\max_j\sum_iR_{ij}\right)+M^{(\alpha)}(\E)}
+\end{equation}
+
+This equation gives a bound on the channel $\E$'s Frobenius norm and the quantity $M^{(\alpha)}(\E)$ that we defined earlier.
