@@ -1,0 +1,555 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%   Version 4.2a of REVTeX, December 2014
+%
+%   Copyright (c) 2014 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage{physics} % for \ket and other quantum notation
+\usepackage{amsthm}
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+
+\DeclareRobustCommand{\bbone}{\text{\usefont{U}{bbold}{m}{n}1}}
+
+\DeclareMathOperator{\EX}{\mathbb{E}}% expected value
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{One-way Symmetric Private Information Retrieval Protocol with One Single Database}% Force line breaks with \\
+
+\author{Xiang Zou}
+\email{xiang.zou@mail.utoronto.ca}
+\thanks{These authors contributed equally to this work.}
+\affiliation{%
+ Department of Physics, University of Toronto, 60 St. George Street, Toronto, ON, M5S 1A7, Canada
+}%
+
+ %\altaffiliation[Also at ]{Physics Department, XYZ University.}%Lines break automatically or can be forced with \\
+\author{Hoi Fung Chau}
+\email{hfchau@hku.hk}
+\thanks{These authors contributed equally to this work.}
+\affiliation{%
+ Department of Physics, The University of Hong Kong, Pokfulam Road, Hong Kong Island, Hong Kong
+}%
+
+
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+In this paper, we investigate a possible protocol to achieve Symmetric Private Information Retrieval with one-way QKD and one single database.
+\end{abstract}
+
+%\keywords{Suggested keywords}%Use showkeys class option if keyword%display desired
+\maketitle
+
+%\tableofcontents
+
+\section{Introduction}
+
+Secure access to remote databases is a central primitive in both classical and quantum cryptography, with applications ranging from cloud storage and biometric identification to distributed ledgers and secure multiparty computation. In this context, private information retrieval (PIR) allows a client to retrieve one item from a database held by a server without revealing which item was requested, thereby protecting the privacy of the client’s query. Symmetric private information retrieval (SPIR) strengthens this notion by additionally requiring \emph{database privacy}: the client must not learn anything about the database beyond the requested item, even if the client is computationally unbounded.%
+
+Classical PIR and SPIR have been extensively studied over the past three decades. In the information-theoretic setting, it is by now well understood that single-server PIR and SPIR suffer from strong limitations: if only one database server is available and no computational assumptions are made, then any PIR scheme with perfect user privacy must reveal essentially the entire database to the user, and information-theoretic SPIR with a single database server is impossible except for the trivial protocol where the entire database is sent.%
+To obtain nontrivial communication complexity and database privacy, classical SPIR protocols assume either multiple non-communicating database servers that share randomness, or they rely on computational hardness assumptions such as the hardness of lattice or number-theoretic problems.%
+These multi-server SPIR protocols can achieve sublinear communication complexity and strong security guarantees, but they require architectural assumptions—such as multiple independent data centres and pre-distributed shared randomness—that may be difficult or costly to realize in practice.%
+
+Quantum communication offers new tools to revisit PIR and SPIR. On the one hand, quantum techniques have been used to prove strong lower bounds for classical PIR via connections to locally decodable codes and quantum random access codes. On the other hand, genuinely quantum protocols can outperform classical ones in certain regimes: for example, quantum symmetrically-private information retrieval (QSPIR) schemes achieve sublinear communication with multiple servers and no shared randomness, while still protecting both user and database privacy against honest-but-curious participants.%
+A parallel line of work on quantum private queries (QPQ) has proposed cheat-sensitive protocols in which a single quantum server can answer private queries to a classical database with strong user privacy and bounded database leakage per query, at the price of relaxing full information-theoretic guarantees and allowing detection of server misbehaviour instead of preventing it outright.%
+More recently, quantum-key-distribution (QKD)-assisted SPIR protocols and experimental demonstrations have shown that quantum networks can be leveraged to distribute the secret keys and shared randomness needed for multi-database SPIR, but these schemes still fundamentally rely on multiple non-colluding databases or trust in specific network assumptions.%
+
+Despite this progress, the status of fully symmetric, information-theoretic private information retrieval from a \emph{single} classical database remains unclear in the quantum setting. Existing negative results show that, under natural correctness and privacy requirements, perfect single-database SPIR is impossible even when quantum communication is allowed, mirroring the classical impossibility of information-theoretic single-server SPIR.%
+At the same time, quantum protocols such as QPQ and QSPIR highlight that quantum states, measurements, and one-shot randomness generation can radically change the achievable trade-offs between communication, security, and trust assumptions.%
+This motivates a careful re-examination of which exact security definitions, resources, and asymptotic regimes are needed in order to circumvent classical impossibility theorems while still achieving a strong, operational notion of SPIR with only one client and one database.%
+
+In this work, a one-way quantum-communication protocol is presented that realizes symmetric private information retrieval between a single client and a single classical database server in an information-theoretic sense, in the asymptotic limit.%
+The protocol uses a prepare-and-measure QKD-type architecture in which the Bank (server) sends single-photon polarization states drawn from the BB84 alphabet to the Client over a one-way quantum channel, followed by classical post-processing over an authenticated public channel.%
+By combining unambiguous state discrimination of partially announced states, classical permutation and blocking of a raw key string, and the application of a suitably chosen $[[k,1,d]]$ quantum error-correcting code (QECC) together with a small amount of additional key material distilled by standard QKD, the Client and Bank jointly generate a \emph{shifting key} such that: (i) the Bank learns no information about which database bit the Client ultimately recovers, (ii) the Client’s information about any other database bits is asymptotically negligible, and (iii) an eavesdropper controlling the channels obtains no information about either the query index or the database contents.%
+
+From a technical perspective, the security analysis relies on three main ingredients.%
+First, standard QKD security proofs (such as the Shor–Preskill entanglement-distillation reduction) are used to bound the amount of information that an all-powerful eavesdropper can obtain from the quantum channel, and to relate the observed quantum bit error rate to an effective key rate that can be harvested as an auxiliary resource.%
+Second, the statistics of unambiguous state discrimination for the partially revealed BB84 states are used to estimate the distribution of positions at which the Client holds reliable classical bits, and to show that with high probability only one block among $n$ blocks is decodable when an appropriate QECC distance is chosen.%
+Third, extractor-type arguments and the Leftover Hash Lemma are invoked to argue that applying the QECC to blocks that are not decodable for the Client effectively yields bits that are information-theoretically close to uniform from the Client’s perspective, ensuring that the Client learns no additional database information beyond the requested bit in the asymptotic limit.%
+
+Operationally, the proposed protocol is attractive in that it uses only standard BB84-type sources and measurements, together with classical permutation, error correction, and privacy amplification, all of which are well within the reach of current QKD technology.%
+The one-way nature of the quantum communication, together with the fact that only a single database server is required, makes the architecture conceptually simple and directly compatible with existing quantum-communication links between a client and a data centre.%
+This work thus provides a concrete candidate for achieving SPIR with one client, one classical database, and one-way quantum communication, together with explicit resource trade-offs between the database size, the block length, the unambiguous discrimination success probability, and the tolerated quantum bit error rate.%
+
+
+\section{Problem Statement}
+\subsection{Description}
+
+First, we quote the problem statement of SPIR, and clearly list out the assumptions in our setup.
+
+Suppose there are two parties, Client and Bank, and they have access to quantum communication channels and classical communication channels. The Bank holds a private database with $n$ bits of data, which we shall refer to as the databse. The client would like to find out the $i$-th bit of the bit string in the database. So in the classical setting, the Client sends a request to the Bank, and the Bank replied.
+
+Apart from Client and Bank, there exists an all-powerful third party, Eve, who have full control over whatever classical and quantum channels between Client and Bank.
+
+Upon the completion of the Information Retrieval process, we would like the scheme to achieve the following 3 goals (the walking definition of SPIR).
+
+\begin{enumerate}
+
+    \item The Bank has no idea which bit of information the Client wants to get.
+
+    \item The Client can only get the bits of information he wants.
+
+    \item No information is leaked to Eve.
+\end{enumerate}
+
+\subsection{Formal Definition}
+\label{sec:formal_definition}
+
+Let $\Sigma=\{0, 1\}$. Suppose Bank holds a bit-string $\textbf{x}=\{x_0, x_1, \cdots, x_n\}\in\Sigma^n$ from an distribution $X$, and the Client is interested in bit $i$. 
+
+We will demonstrate the existence of an SPIR (Symmetric Private Information Retrieval) protocol that utilizes a one-way quantum channel from the Bank to the Client, along with public broadcasting channels accessible to both the Client and the Bank, by employing some additional resources. Following the SPIR process, the Client will possess a bit-string \( \mathbf{y} = \{y_0, y_1, \cdots, y_n\} \in \{0, 1\}^n \) derived from a distribution \( Y \), where \( x_i = y_i \). Additionally, for \( \mathbf{x'} = \{x_0, \cdots, x_{i-1}, x_{i+1}, \cdots, x_n\} \) from a distribution \( X' \) and \( \mathbf{y'} = \{y_0, \cdots, y_{i-1}, y_{i+1}, \cdots, y_n\} \) from a distribution \( Y' \), there exists, for an arbitrarily small \( \epsilon > 0 \), a resource measure such that \( I(\mathbf{x'}, \mathbf{y'}) \le \epsilon \). This ensures that the Client gains asymptotically no information about the Bank beyond the specific bit of interest.
+
+\section{The Protocol}
+\label{sec:the_protocol}
+In this section, we will describe the protocol that the Client and the Bank use to achieve SPIR, with a quantitative analysis discussed in later sections. We work based on the usual Quantum Key Distribution (QKD), where the Bank will prepare one of the four states, $\ket{H}, \ket{V}, \ket{D}, \ket{A}$ representing the 4 polarizations of the photons, Horizontal, Vertical, Diagonal, and Anti-diagonal, respectively. Whereby convention, $\ket{H}, \ket{D}$ represent the physical bits $0$ in the H-V basis and D-A basis, respectively; then, $\ket{V}, \ket{A}$ represent the physical bits $1$ in their respective basis.
+
+Suppose the Bank holds a database of $n$ bits of data, the Bank and the Client will collectively come up with an integer $k$, where they aim at achieving a length $kn$ physical bits at the end. The reason for needing the parameter $k$ will be discussed later. Meanwhile, they will agree on 2 other integers $m$ and $h$, their usage will be explained later. 
+
+\begin{enumerate}
+    %\item The Bank first randomly chooses whether it wants to send the physical bits $0$ or $1$. Without loss of generosity, suppose the Bank chooses to send the physical bits $0$.
+
+    \item The Bank randomly prepares one of the four states, $\ket{H}, \ket{V}, \ket{D}, \ket{A}$, and sends it to the Client. The client acknowledges receipt and chooses a random basis (either H-V or D-A) to measure the state. The client marks down both the chosen basis and the measurement result. The process is repeated until $kn+m+h$ qubits are received by the Client.
+
+    \item The Client and the Bank use $m$ received states to estimate the error, where the Bank and the Client collectively choose $m$ states that they will publicly announce the measurement basis and result, and then, they estimate the error occurs in the channel; if the error rate is too high, they abort the protocol; otherwise, they proceed. This error estimation step is to ensure that the eavesdropper gains no information; detailed analysis is in section~\ref{sec:Security_against_Eve}, then they calculate the QKD key rate, denoted by $r$.
+
+    \item For the remaining $kn+h$ states, they will use $h$ qubits to perform a normal QKD process (i.e., publicly announce the basis and discard the mismatched ones, then do error-correction and privacy amplification with some pre-shared privacy), and they will obtain a length $hr$ shared private key. These $hr$ bits are used for padding for the error-correction code in later stages; details can be seen in Section~\ref{sec:QECC_existence}. 
+
+    \item For the remaining $kn$ states, the Bank will reveal partial information of that state. For example, if the Bank prepared $\ket{H}$ or $\ket{A}$, it classically announces that "the state he prepared is either $\ket{H}$ or $\ket{A}$". Similarly, if either $\ket{V}$ or $\ket{D}$ was prepared, it classically announces that ``the state it prepared is either $\ket{D}$ or $\ket{V}$''. 
+
+    \item Following the Unambiguous State Discrimination (USD). For each state, with a 25\% chance, the Client can unambiguously determine the state, whereas with a 75\% chance, the Client cannot. If the Client can unambiguously determine the state, the Client marks it as "unambiguous" and records the physical bits. Otherwise, the Client marks down "ambiguous" and 0 or 1 randomly.
+
+
+    \item By now, the Bank and the Client have shared an imperfect bit-string of length $kn$. Denote the bit string held by the Bank as $\mathbf{s_b}$, and that by the Client as $\mathbf{s_c}$; both bit strings are indexed. Denote the index sting to be $\mathbf{s'}=\langle1, 2, 3, \cdots, kn\rangle$.
+
+    \item The Bank randomly permutes the bit string $\mathbf{s_b}$, and assigns them into $n$ blocks separately, denoted as $\mathbf{s_{b1}}, \mathbf{s_{b2}},\cdots \mathbf{s_{bn}}$, and each block has $k$ bits. Furthermore, we denote the indices of each bit in every block in the original bit-string $\mathbf{s_b}$, and denote it as $\mathbf{s_{1}'}, \mathbf{s_{2}'},\cdots \mathbf{s_{n}'}$.
+
+    \item The Bank will publicly announce the index strings $\mathbf{s_1'}, \mathbf{s_2'},\cdots \mathbf{s_n'}$. And ask for a permutation from the Client. Meanwhile, the Bank and the Client will choose a $[[k, 1, d]]$ quantum error correction code for $d=\frac{(1-b-\epsilon)}{1+e}k$. Here, $b$ represents the probability of USD, for photon polarization $b=1/4$. $e$ is the quantum channel error rate and $\epsilon$ is some user-defined threshold. Detailed explanation and analysis on each parameter is in Section~\ref{sec:QECC_existence}.
+
+    \item After receiving the $n$ index strings $\mathbf{s_1'}, \mathbf{s_2'},\cdots \mathbf{s_n'}$ and knowing the QECC code that they agreed on, the Client knows which block is correctable. The Client will arrange the $n$ index strings and put the correctable block to his interest bit, and return the permuted index strings back to the Bank. For example, the bank has a database of 5 bits, hence there are 5 blocks of $k$ bits. Suppose the Client can only correct the $2^{nd}$ block, and he is interested in the $5^{th}$ bit, then he may return a permuted string to the Bank as $3,5,4, 1, 2$. The key here is that block $2$ is placed at location $5$.
+
+    \item Upon receiving the permuted index strings, the Bank applies the QEC code to each block $\mathbf{s_{b1}}, \mathbf{s_{b2}},\cdots \mathbf{s_{bn}}$, and obtains an $n$-bit shifting key $\mathbf{s_s}$. Then, suppose the Bank will send to the Client a database $\mathbf{d}$, the Bank sends to the Client $\mathbf{y}=\mathbf{d}\oplus\mathbf{s_s}$.
+
+    \item The Client will apply the QEC code to the block that is correctable and obtain a single-bit shifting key $s_s'$, and upon receiving $\mathbf{y}$ from the Bank, suppose he is interested in the $i^{th}$ bit, he will select the $y_i$ that he is interested in and get back $d_i=y_i\oplus s_s'$.
+    
+\end{enumerate}
+
+\section{The Correctness of the Protocol}
+
+This is left as an exercise for the reader. (OK, this section will be constructed later.)
+
+\section{Security Against Eve}
+\label{sec:Security_against_Eve}
+The security against the eavesdropper Eve is pretty simple, as we largely adopted the QKD setup, and it should be clear. Here, we would like to provide a security proof where the Bank gets no information on which bits the Client wants, and the Client gets asymptotically no further information apart from the bit he wants.
+
+The protocol is secure against Eve, because the new protocol that we proposed is largely based on the QKD architecture. Previous results have proven the security of QKD, for example, as proven by Lo and Chau, Shor, and Preskill.
+
+Specifically, in Shor and Preskill's framework of the BB84 QKD protocol, they have proven that a CSS-based entanglement-distillation protocol (a QEC procedure) is operationally equivalent to a prepare-and-measure scheme with classical information reconciliation followed by privacy amplification to extract a shared private key. And the key rate is given by,
+\begin{equation}
+    R\le 1-H(e_b)-H(e_p)
+\end{equation}
+where $e_b$ and $e_p$ represents the bit-flip and phase-flip error, and $H(x)=-x\log_2x-(1-x)\log_2(1-x)$ is the binary entropy function. If we assume that $e_b=e_p$, the equation further reduced to
+\begin{equation}
+    R \le 1-2H(e)
+\end{equation}
+where $e$ is the qubit error rate. It is easy to show that the threshold error rate for $R>0$ is
+
+\begin{equation}
+\begin{split}
+    H(e_{thr})&<1/2\\
+    e_{thr}&\lessapprox 11\%
+\end{split}
+\end{equation}
+
+Here we state a walking theorem; later in Section~\ref{sec:Client_Cheating}, we will present the full theorem with a proof.
+
+\begin{theorem}
+    For any channel qubit error rate $e<e_{thr}$, where $e_{thr}$ is the threshold qubit error rate of the QKD protocol used, the presented SPIR protocol in Section~\ref{sec:the_protocol} can be achieved with some overhead of $h$.
+\label{thm:walking_theorem}
+\end{theorem}
+
+%Now, in our architecture, suppose during the error estimation stage, i.e., step 2 in Section~\ref{sec:the_protocol}, the estimated channel error is $e$. Suppose the chance that the Client can unambiguously determine the state is $b$, where for polarization encoded qubits $b=\frac{1}{4}$, and the theoretical maximum is $b=1-\sqrt{2}/2\approx0.29$. Then, after considering the channel error, the fraction of states that can be unambiguously determined by the Client is $(1-e)b$.
+
+%The success of the protocol lies largely on the existence of a $[k, 1, d]$ error correcting code. 
+
+\section{Prevention of the Client Cheating}
+\label{sec:Client_Cheating}
+
+For the states that are not unambiguously identified, does the Client have any partial knowledge about them? Fortunately, the answer is no, and we will prove it here. Without loss of generosity, suppose the Client gets a state from the Bank, and the Client measures it in $\{\ket{D}, \ket{A}\}$ basis, and obtains the result $\ket{A}$. Then, the Bank told the Client that the state prepared is either $\ket{H}$ or $\ket{A}$. Note that the Positive Operator-Valued Measurement (POVM) can boost the unambiguous state discrimination (USD) probability to $1-|\bra{H}\ket{A}|=1-\sqrt{2}/2\approx0.293$, but it requires embedding the qubit into a higher-dimensional Hilbert space using an ancilla or additional modes, while by Quantum Field Theory, photons only have 2 polarizations, so we should not be too worry about the generalized measurement case for now. The generalized measurement case will be discussed later.
+
+In the simple case, suppose the Bank told the Client that the state prepared is either $\ket{H}$ or $\ket{A}$, we can calculate the following probabilities via simple Bayes' theorem $P(X|Y) = \frac{P(X \cap Y)}{P(Y)}$.
+
+For ambiguous cases, we mark Client as C and Bank as B:
+\begin{equation}
+    \begin{split}
+        P(\text{C gets $\ket{A}$ $|$ B sends $\ket{A}$})&=\frac{0.5\times 0.5}{0.5}=\frac{1}{2}\\
+        P(\text{C gets $\ket{H}$ $|$ B sends $\ket{A}$})&=\frac{0.5\times 0.25}{0.5}=\frac{1}{4}\\
+        P(\text{C gets $\ket{H}$ $|$ B sends $\ket{H}$})&=\frac{0.5\times 0.5}{0.5}=\frac{1}{2}\\
+        P(\text{C gets $\ket{A}$ $|$ D sends $\ket{H}$})&=\frac{0.5\times 0.25}{0.5}=\frac{1}{4}\\
+    \end{split}
+\end{equation}
+
+Hence, 
+\begin{equation}
+    \begin{split}
+        P(\text{C gets $\ket{A}$ $|$ ambiguous})&=\frac{0.5+0.25}{0.5+0.5+0.25+0.25}=\frac{1}{2}\\
+        P(\text{C gets $\ket{H}$ $|$ ambiguous})&=\frac{0.5+0.25}{0.5+0.5+0.25+0.25}=\frac{1}{2}\\
+    \end{split}
+\end{equation}
+
+Thus, when the Client gets an ambiguous result, the Client cannot gain any partial information on which the Bank prepares. This is intuitively understandable as the 2 results are symmetric. 
+
+We will show that the probability of the Client gaining more than 1 bit of data can be made arbitrarily low at the cost of increasing the failure probability of the protocol.
+
+As mentioned before in the Section~\ref{sec:the_protocol}, after the Client and Bank shared imperfect strings $\textbf{x}_N$ and $\textbf{y}_N$ respectively with length $N=kn$, where $n$ is the length of the database held by the Bank. The Bank will randomly shuffle and reduce it into $n$ blocks, each with $k$ bits. Furthermore, the Bank will choose an $[[k, 1, d]]$ QECC and publicly announce it; the chosen QECC is then applied to all $n$ blocks. Eventually, the original length $N=kn$ bit-string is reduced to a bit-string of length $n$, $\textbf{s}_b=\{s_{b0}, s_{b1}, \cdots, s_{bn}\}\in\Sigma^n$ and $\textbf{s}_c=\{s_{c0}, s_{c1}, \cdots, s_{cn}\}\in\Sigma^n$ held by the Bank and Client, respectively. 
+
+We claim that the protocol succeeds under the accomplishment of the following criterion: $\exists! i$ where $x_i=y_i$, and for $\textbf{x'}=\{x_0, \cdots, x_{i-1}, x_{i+1}, \cdots, x_n\}$ and $\textbf{y'}=\{y_0, \cdots, y_{i-1}, y_{i+1}, \cdots, y_n\}$, that $I(X', Y')\le \epsilon$ as we described in Section~\ref{sec:formal_definition}. There are three possible failures of the protocol:
+\begin{enumerate}
+    \item $\nexists i$ such that $x_i=y_i$. Then, the Client cannot obtain any bits.
+
+    \item There exists unique $i_0, \cdots i_l$ and that both $x_{i_v}=y_{i_v}$ for $v=1, \cdots l$. Then, the Client can identify more than 1 bit.
+
+    \item $I(\textbf{x'}, \textbf{y'})>\epsilon$. Then, the Client might be able to identify more than 1 bit.
+\end{enumerate}
+
+
+To avoid the failure of the protocol, the Bank needs to choose an error correcting code with hamming distance $d\le\frac{3k}{4}-\epsilon$. Here, we would like to investigate the relationship between $n, k, \epsilon$ and the probability of the protocol failing.
+
+Quantum mechanically, we have shown that for each qubit sent by the Bank to the Client, suppose the chance that the Client can unambiguously determine the state without noise is $b$, ideally for polarization encoded qubits $b=\frac{1}{4}$, and the theoretical maximum is $b=1-\sqrt{2}/2\approx0.29$. When the channel error is taken into account, the success probability of unambiguous state discrimination will be lower. However, the Client does not know which of his ``unambiguously determined'' bits are prompted to error, hence, we will treat the error later.
+
+%, suppose the channel error rate is $e$, and we denote $b$ to be the probability that the Client can unambiguously determine the state with channel error. Then,
+
+
+Suppose for any $k$ bit string, we can calculate the probability that Bob can unambiguously determine $a$ bits.
+\begin{equation}
+    p(a) = \binom{k}{a} \left(b\right)^a\left(1-b\right)^{k-a}
+\end{equation}
+
+When the Bank chooses an $[[k, 1, d]]$ error-correcting code, and set $d \le(1-b)k-\epsilon$. Then, for any block of length $k$ bit-string, if the Client can unambiguously determine at least $(b+\epsilon)k$ bits, he can distill $1$ bit from this block of length $k$. Therefore, we now need to compute the probability that Bob can unambiguously determine at least $\left(b+\epsilon\right)k$ bits, this is:
+\begin{equation}
+\begin{split}
+    p(\text{resolving}\ge k(b+\epsilon)) &= \sum_{a\ge k(b+\epsilon)}^k \binom{k}{a}\left(b\right)^a\left(1-b\right)^{k-a}\\
+    &=\sum_{a'=0}^{(1-b-\epsilon)k}\binom{k}{k-a'}b^{k-a'}(1-b)^{a'}\\
+    &=\sum_{a'=0}^{(1-b-\epsilon)k}\binom{k}{a'}b^{k-a'}(1-b)^{a'}
+\end{split}
+\end{equation}
+
+Rewriting the dummy index from $a'$ to $a$, we have:
+\begin{equation}
+    p(\text{resolving}\ge k(b+\epsilon)) = \sum_{a=0}^{(1-b-\epsilon)k}\binom{k}{a}b^{k-a}(1-b)^{a}\equiv p_1
+    \label{eq:p_each_block}
+\end{equation}
+
+
+This is the probability for each block that the Client can successfully correct $1$ bit. The probability of the Client obtaining more than 1 bit is:
+
+\begin{equation}
+\begin{split}
+    p(C\ gets\ > 1\ bits) &= 1-\left\{[1-p_1]^n+ \binom{n}{1} p_1[1-p_1]^{n-1}\right\}\\ 
+    &= 1-\left\{[1-p_1]^n+np_1[1-p_1]^{n-1}\right\}\\
+    &=1 + (1 - p_1)^{n-1} (p_1 - n p_1 - 1)
+\end{split}
+\label{eq:C_cheated}
+\end{equation}
+
+Thus, 
+
+\begin{equation}
+\begin{split}
+    \frac{dp(C\ gets\ > 1\ bits)}{dp_1}&=n(n-1)p(1 - p)^{n-2}\\
+    &>0\qquad \text{for $p\in(0, 1)$}
+\end{split}
+\end{equation}
+
+Simple calculation from equation~\ref{eq:p_each_block} reveals that $p(C\ gets\ > 1\ bits)$ is monotonically increasing with $p_1$ for $p_1\in(0, 1)$. Next, the probability of the Client obtaining no bits is:
+\begin{equation}
+\begin{split}
+    p(C\ gets\ 0\ bits) =[1-p_1]^n
+    \label{eq:C_failed}
+\end{split}
+\end{equation}
+
+It is trivial that the probability of the Client obtaining no bits is strictly monotonically decreasing with $p_1$.
+
+Both equations~\ref{eq:C_failed} and~\ref{eq:C_cheated} depends on the value of $p_1$. Hence, we will calculate the upper and lower bounds of $p_1$, hence give an upper or lower bound of the probabilities of the Client gaining more than 1 bit or no bits at all.
+
+\subsection{Upper bound for Client gaining more than 1 bit}
+As in equation~\ref{eq:C_cheated}, the probabilities where the Client gains more than 1 bit $P(C\ gets\ > 1\ bits)$ is monotonically increasing with $p_1$, hence, we can obtain the upper bound of $P(C\ gets\ > 1\ bits)$ by calculating the upper bound of $p_1$.
+
+In equation~\ref{eq:p_each_block}, the probability $p(\text{resolving}\ge kb+\epsilon)$ is equivalent to the following picture, where we set a binomial random variable $X \sim Bin(k, p)$ for $p=1-b$ and $m = \lfloor pk-\epsilon\rfloor$. 
+
+Then, $p(\text{resolving}\ge k(b+\epsilon))$ can be equivalently transformed to $p(X\le m)$. This is exactly a well-studied problem of the tailed probabilities of a Gaussian distribution. The usual representation of the tailed distribution is:
+\begin{equation}
+\begin{aligned}
+&b_{n, k}(p):=\binom{n}{k} p^k (1-p)^{n-k}\\
+&B_{n, k}(p):=\sum_{j=0}^k b_{n, j}(p)=\sum_{j=0}^k\binom{n}{j} p^j (1-p)^{n-j}
+\end{aligned}
+\end{equation}
+
+One of the most popular upper bounds for $B_{n,k}(p)$ is the Chernoff bound
+\begin{equation}
+    B_{n,k}(p)\le e^{-nD\left(\frac{k}{n}\|p\right)}
+    \label{eq:Chernoff_bound}
+\end{equation}
+
+which characterizes the exponential decay rate of the tail probability, where $D(p||q)$ represents the Kullback-Leibler (K-L) divergence, 
+\begin{equation}
+D(f \| p):=f \ln \frac{f}{p}+(1-f) \ln \frac{1-f}{1-p}
+\end{equation}
+
+Using this result, the $p(\text{resolving}\ge kb+\epsilon) = p(X\le m) = B_{k, (1-b-\epsilon)k}(1-b)$, using equation~\ref{eq:Chernoff_bound},
+\begin{equation}
+    B_{k, (1-b-\epsilon)k}(1-b)\le e^{-kD\left(1-b-\epsilon\|1-b\right)}
+\end{equation}
+
+Since, $\epsilon<<1$, we would like to approximate the K-L divergence $D(1-b-\epsilon\|1-b)$
+
+\begin{equation}
+\begin{split}
+    &D(1-b-\epsilon\|1-b)\\&=(1-b-\epsilon)\ln\left(\frac{1-b-\epsilon}{1-b}\right)+(b+\epsilon)\ln\left(\frac{b+\epsilon}{b}\right)\\
+    &\approx \frac{\epsilon^2}{2b(1-b)}+O(\epsilon^3)
+    \end{split}
+\end{equation}
+
+Hence, 
+\begin{equation}
+\begin{split}
+p_1=B_{k, (1-b-\epsilon)k}(1-b)&\le e^{-kD\left(1-b-\epsilon\|1-b\right)}\\
+%not sure if this is correct!!!!!!!!!!!!!!!!!!!!!!!!!!
+&\le e^{-\frac{k\epsilon^2}{2b(1-b)}}\\
+&\le 1-\frac{k\epsilon^2}{2b(1-b)}
+\end{split}
+\end{equation}
+
+For simplicity, write $c=\frac{k}{2b(1-b)}$, then,
+
+\begin{equation}
+    p_1\le 1 - c\epsilon^2
+\end{equation}
+
+Substitute this result back to equation~\ref{eq:C_cheated}, we get:
+\begin{equation}
+    \begin{split}
+        p(C\ gets\ > 1\ bits) &=1-\left[(1-p_1)^n+np_1(1-p_1)^{n-1}\right]\\
+        &\le 1-\left[(c\epsilon^2)^n+n(1-c\epsilon^2)(c\epsilon^2)^{n-1}\right]\\
+        &=1-c^n\epsilon^{2n}-nc^{n-1}\epsilon^{2n-2}+nc^n\epsilon^{2n}\\
+        &=1-c^{n-1}\epsilon^{2n-2}\left[n+(1-n)c\epsilon^2\right]\\
+        &\le 1-nc^{n-1}\epsilon^{2n-2}\left[1-c\epsilon^2\right]\\
+        %&=1-O\left[nk^{n-1}\epsilon^{2n-2}(1-k\epsilon^2)\right]
+        %&=1+(n-1)c^n\epsilon^{2n}-nc^{n-1}\epsilon^{2n-2}\\
+        %&= 1+nc^n\epsilon^{2n}-nc^{n-1}\epsilon^{2n-2}\\
+        %&=1-nc^{n-1}\epsilon^{2n-2}\left(1-c\epsilon^{2}\right)\\
+    \end{split}
+    \label{eq:upper_bound_C_cheated}
+\end{equation}
+
+Hence, given a tolerable probability $p$, we can find a value of $k$ and $\epsilon$ such that the probability of the Client gaining more than 1 bit is arbitrarily small. It is quite clear that equation~\ref{eq:upper_bound_C_cheated} shows the upper bound of the probability of Client gaining more than 1 bit increase with $\epsilon$.
+
+Unfortunately, the probability of Client gaining more than 1 bit also grows with $\epsilon$, as in equation~\ref{eq:C_failed}. Therefore, there is a fundamental trade-off between the probability of the Client getting more than 1 bit and the probability of the Client getting no bits at all.
+
+\subsection{The Existence of such QEC Code}
+\label{sec:QECC_existence}
+
+% IN THIS STEP, WE NEED TO CONSIDER THE CHANNEL ERROR INTO ACCOUNT, SINCE THE UNAMBIGUOUSLY DETERMINED BIT STRING IS ERRORSOME, WE NEED TO LOWER THE QECC CODE DISTANCE.
+
+%FOR ASYMMETRIC ERROR, MAYBE THE CLIENT OR BANK CAN CHEAT.
+
+In the previous subsection, we have shown that the chance of the Client gaining more than 1 bit can be made arbitrarily small by choosing appropriate $k$ and $\epsilon$. Here, we also need to consider the channel error rate. Suppose the channel error rate is $e$. 
+
+An error happens in the following case. Suppose the Bank sends $\ket{H}$, and after passing the channel, the state becomes $\ket{H'}$, that $|\bra{H'}\ket{H}|^2=1-e$, $|\bra{H'}\ket{V}|^2=e$, and announce that the state is either $\ket{H}$ or $\ket{A}$. When the Client chooses to measure it in $\{\ket{H},\ket{V}\}$ basis. Then, with a probability $e$, the Client will obtain the state $\ket{V}$, and the Client will falsely conclude that he can unambiguously determine the original state to be $\ket{A}$. We assume the error is isometric, meaning that:
+
+\begin{equation}
+    \EX{\left(|\bra{H'}\ket{D}|^2-|\bra{H'}\ket{A}|^2\right)<\epsilon_{e}}
+\end{equation}
+
+For some arbitrary small number $\epsilon_e$. Hence, suppose the Client thinks that he can unambiguously determine $x$ qubits, he can actually only be able to determine $x/(1+e)$ qubits, which further means, there is an $x-x/(1+e)=xe/(1+e)$ bits that are flipped. 
+
+
+Now, here is a more fundamental problem arising: does a $[[k, 1, d]]$ QEC code exist for $d=\frac{(1-b-\epsilon)}{1+e}k$? Wouldn't it break some well-established bounds for QEC code? Unfortunately, the answer is no. As proven in Shor and Preskill's proof, the prepare and measure QKD with privacy amplification is equivalent to a one-way entanglement-distillation process. Thus, the prepare-and-measure QKD with privacy amplification is equivalent to a QEC code $[[n, \lfloor rn\rfloor, \lfloor en\rfloor]]$, where $r$ is the key rate, and $e$ is the channel error rate. And the key rate is given by:
+\begin{equation}
+    r\le 1-2H(e)
+\end{equation}
+For $H_2(e)$ representing the binary entropy function.
+
+In order to find a $[[k, 1,\frac{(1-b-\epsilon)}{1+e}k]]$ QEC code, we have $r'=1/k$ and $e'=\frac{(1-b-\epsilon)}{1+e}$. While this is impossible, as $e'>e_{thr}$. Luckily, there's a way to rescue it. Remember in step 3 of the protocol in Section~\ref{sec:the_protocol}, the Bank has sent $h$ extra states to the Client, where they perform a normal QKD process and get $hr$ shared-private key. Then, we distribute these $hr$ private keys to the $n$ blocks, and each block now contains $k+hr/n$ bits, and now the problem has become to find a $[[k+hr, 1, \frac{(1-b-\epsilon)}{1+e}k]]$ QECC code. Denotes that the key rate $r'$ and error rate $e'$ for each block are:
+\begin{equation}
+    e'=\frac{(1-b-\epsilon)k}{(k+hr/n)(1+e)}, \quad r'=\frac{1}{k+hr/n}
+\end{equation}
+
+Substituting it back into the bound proven in Shor-Preskill's proof.
+
+\begin{equation}
+\begin{split}
+    r'&\le1-H_2(e')\\
+    \frac{1}{k+hr/n}&\le1-H_2\left(\frac{(1-b-\epsilon)k}{(k+hr/n)(1+e)}\right)
+\end{split}
+\end{equation}
+
+Solving the above inequality will yield that $h\ge f(n, k, r, b,\epsilon)$, which gives a lower bound on the overhead needed to make this protocol work. However, the above inequality is, in general, very hard to solve; instead, we can solve a much easier one that carries almost the same implications.
+
+Instead of finding a general upper bound for $r'$ in terms of $e'$, we now only require that the protocol can be successful, i.e., $r'>0$. Which means, we require the error rate $e'$ for each block to be smaller than the threshold error rate $e_{thr}$ of the QKD channel and $r=H_2(e)$ is the key rate of the QKD channel used.
+\begin{equation}
+\begin{split}
+    e'&< e_{thr}\\
+    \frac{(1-b-\epsilon)k}{(k+hr/n)(1+e)}&< e_{thr}\\
+    h&>\frac{nk(1-b-\epsilon-e_{thr}(1+e))}{e_{thr}(1+e)r}
+\end{split}
+\label{eq:lower_bound_h}
+\end{equation}
+
+Now, we will state and prove the full theorem for the walking theorem~\ref{thm:walking_theorem}
+
+\begin{theorem}
+    For any channel qubit error rate $e<e_{thr}$, where $e_{thr}$ is the threshold qubit error rate of the QKD protocol used, the presented SPIR protocol in Section~\ref{sec:the_protocol} can be achieved with some overhead of $h >\frac{nk(1-b-\epsilon-e_{thr}(1+e))}{e_{thr}(1+e)r}$ qubits, where $n$ is the size of the Bank, $k$ is the number of qubits per block, $b$ is the success probability of the unambiguous state discrimination and $\epsilon$ is some arbitrary number to adjust the probability of Client cheating.
+\label{thm:success_protocol}
+\end{theorem}
+
+\begin{proof}
+    The protocol success means $\exists h, s.t. [[k+hr, 1, d]]$ exists, for $d=\frac{(1-b-\epsilon)}{1+e}k$ and $r=1-2H_2(e)$. And in the above section, we have shown that, imposing $r'=\frac{1}{k+hr}>0$, we get $e'=\frac{(1-b-\epsilon)k}{(k+hr/n)(1+e)}<e_{thr}$.
+
+    Through simple calculation, we obtain,
+    \begin{equation}
+         h>\frac{nk(1-b-\epsilon-e_{thr}(1+e))}{e_{thr}(1+e)r}
+    \end{equation}
+    The right-hand side of the above inequality has poles only at $e_{thr}=0,\ e=-1$ and $r=0$. Since, $e_{thr}>0,\ e>0$. The only realistic pole is at $r=0$. As $r\ge0$, with equality only at $e=e_{thr}$. Hence, we have proven that $\forall e<e_{thr}, \exists h, s.t.$ the protocol can succeed.
+\end{proof}
+
+\subsection{The Client Gains no Information from the blocks that are not correctable}
+
+As we presented in Section~\ref{sec:Client_Cheating}, the success of the protocol has 3 criteria. In the above subsections, we have given bounds to the probability of that with the $[[k, 1, d]]$ QEC code, the Client can correct more than 1 block, or the Client can correct no blocks. In this subsection, we target the third failing possibility, which is whether, for the uncorrectable blocks, can Client obtain any partial information? The answer is no, which is intrinsic to the property of QEC codes, as we will prove with the help of the Leftover Hash Lemma.
+
+The random hashing algorithm is one type of extractor that extracts a shorter string from a longer string under some conditions. We will formally define extractors as follows.
+%%%%%CITE LECTURE NOTES
+\begin{definition}
+    let $n, m, k, d$ be positive integers, and $\epsilon > 0$. Then, we define a function $Ext: \{0, 1\}^n\times \{0, 1\}^d \rightarrow \{0, 1\}^m$ as a $(k, \epsilon)$ extractor if, for every $n$ bits string $X$ with minimum entropy $k = H_\infty(X)$, and a randomly chosen bit string $S_d$ of length $d$, and a random bit string $U_m$ of length $m$, we have 
+    $$\delta(Ext(X, S_d), U_m)<\epsilon$$
+\end{definition}
+
+\begin{theorem}
+  \textbf{Leftover Hash Lemma:} For a set of $H$ random hashing function $h: \{0, 1\}^n \rightarrow \{0, 1\}^m$, then, for every $n$ bits string $X$ with minimum entropy $H_\infty(X)$, we can set $m\le H_\infty(X) - 2\log_2\left(\frac{1}{\epsilon}\right)$, then, $Ext(X, h)$ is an $(k, \epsilon/2)$ extractor.
+\end{theorem}
+This means, for a block of $k$ bits, which is not correctable by the Client, then by Lemma~\cite{Leftover_Hash_lemma}, the Client gains asymptotically no information at all. Hence, when the Client tries to use the $[[k, 1, d]]$ code to apply to the uncorrectable blocks, the result is random. Mathematically, if we denote the QEC code as $Q$, and block $i$ is the only block that the Client can correct. Then for the 2 shifted keys except at location $i$,
+
+\begin{equation}
+    \mathbf{x'}=[Q(\mathbf{s_{b1}}), \cdots Q(\mathbf{s_{bi-1}}), Q(\mathbf{s_{bi+1}}), \cdots, Q(\mathbf{s_{bn}}) ])
+\end{equation}
+
+\begin{equation}
+    \mathbf{y'}=[Q(\mathbf{s_{c1}}), \cdots Q(\mathbf{s_{ci-1}}), Q(\mathbf{s_{ci+1}}), \cdots, Q(\mathbf{s_{cn}}) ])
+\end{equation}
+
+will obey that,
+
+\begin{equation}
+    I(\mathbf{x'}, \mathbf{y'})<\epsilon
+\end{equation}
+
+Then, the Client gains no information from the uncorrectable blocks.
+
+
+\section{Prevention of Bank Cheating}
+
+In our assumption, the quantum channel is controlled by Eve, where both the Client and the Bank have no control over the quantum channel.
+
+The cheating of the Bank means that the Bank tried to gain information on the bits that the Client is interested in. Therefore, any cheating strategy during the initial QKD phase, corresponding to steps 1 and 2 in the above protocol, will have the potential hazard of leaking information to Eve. The Client only communicates with the Bank twice, once during the initial error estimation, whereby we assume that the communication channel is completely controlled by Eve. Therefore, the Client has no reason to cheat, as their primary goal is to prevent Eve from gaining any information.
+
+First, we will prove that if the Bank lied (e.g., the Bank didn't prepare the state in $\ket{H}, \ket{V}, \ket{D}, \ket{A}$), during the error estimation case, it will appear as an increase in the error of the channel.
+
+\begin{proof}
+    It is obvious that if Bank didn't prepare the single-qubit state in $\ket{H}, \ket{V}, \ket{D}, \ket{A}$, for instance, if the Bank prepares $\frac{a\ket{H}+be^{i\theta}\ket{V}}{\sqrt{a^2+b^2}}$, then, it contributes to increasing the error rate.
+
+    Suppose the Bank cheats by replacing $\ket{H}, \ket{V}, \ket{D}, \ket{A}$ into $\ket{H'}, \ket{V'}, \ket{D'}, \ket{A'}$, where $|\bra{X}\ket{X'}|^2=1-\epsilon_b$ for $X=H, V, D, A$. Then, it increases the channel error rate by $\epsilon_b$.
+
+    Now, here's a second probability: if the Bank prepares entangled states. The no-communication (no-signaling) theorem states that for any bipartite state, local operations or measurements (including randomized basis choices) on one subsystem cannot influence the marginal statistics or state accessible to the distant subsystem, thereby forbidding information transfer without classical communication. Which means, the Bank cannot gain any information on the Client's basis choice and measurement results. Thus, the Bank can gain no information in this sending entangled states. 
+
+\end{proof}
+
+The last time the Client communicates with the Bank is when the Client returns the permuted index strings. As a theoretical analysis, we assume the measurement performed by the Client is symmetric, meaning that the error rate of the measurements in the H-V basis and the D-A basis is the same, in fact, if the measurement error rate of H-V basis and the D-A basis is not the same, it will potentially leak information to the Bank, as we will show in Section~\ref{sec:potential_cheating}.
+
+Also, each detection event is independent, so the Bank has no way to know which set of qubits is unambiguously determined by the Client. Hence, the Client returns the permuted blocks in step 9 of the protocol~\ref{sec:the_protocol}
+
+\section{Potential Cheating Methods}
+\label{sec:potential_cheating}
+
+The Bank might be able to cheat when the measurement accuracy of different bases varies; then, the Bank can shuffle the blocks differently to increase the likelihood of some blocks containing correct information. Solution: If the Client knows that his measurement is asymmetric, he needs to add some randomness to make the measurement result look asymmetric.
+
+The Client can cheat by faking a higher channel error rate, and fake the Bank into choosing a not-so-good QEC code, and cheat.
+
+\section{Simulation Result}
+In this section, we demonstrate the Simulation result.
+
+\section{Conclusion}
+We conclude that...
+
+
+
+
+
+
+
+
+
+
+
+\bibliography{SPIR_Single_Database}% Produces the bibliography via BibTeX.
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******

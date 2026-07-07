@@ -1,0 +1,228 @@
+\begi% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.2 distribution.
+%   Version 4.2a of REVTeX, December 2014
+%
+%   Copyright (c) 2014 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.2
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-2}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage{hyperref}% add hypertext capabilities
+\usepackage{physics} % for \ket and other quantum notation
+\usepackage{amsthm}
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+
+\DeclareRobustCommand{\bbone}{\text{\usefont{U}{bbold}{m}{n}1}}
+
+\DeclareMathOperator{\EX}{\mathbb{E}}% expected value
+
+\begin{document}
+
+\preprint{APS/123-QED}
+
+\title{One-way Symmetric Private Information Retrieval Protocol with One Single Database Achieving Statistical Security}% Force line breaks with \\
+
+\author{Xiang Zou}
+\email{xiang.zou@mail.utoronto.ca}
+\thanks{These authors contributed equally to this work.}
+\affiliation{%
+ Department of Physics, University of Toronto, 60 St. George Street, Toronto, ON, M5S 1A7, Canada
+}%
+
+ %\altaffiliation[Also at ]{Physics Department, XYZ University.}%Lines break automatically or can be forced with \\
+\author{Hoi Fung Chau}
+\email{hfchau@hku.hk}
+\thanks{These authors contributed equally to this work.}
+\affiliation{%
+ Department of Physics, The University of Hong Kong, Pokfulam Road, Hong Kong Island, Hong Kong
+}%
+
+
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\maketitle
+
+\section{Basic}
+
+A quantum state $\ket{\psi}$, a quantum state that can be written in this form is \textbf{always} a pure state. Because the system is completely described by 1 state, which is $\ket{\psi}$. You can represent a ``equivalent'' state by writing $\ket{\psi'}=U\ket{\psi}$, where $U$ is a basis-changing unitary.
+
+For example, $\ket{0}=\frac{\ket{+}+\ket{-}}{\sqrt{2}}$.
+
+For a pure state, it is defined as $\rho =\ket{\psi}\bra{\psi}$. Eg. for $\ket{0}$, $\rho = \ket{0}\bra{0}$. So, in the $\{\ket{0}, \ket{1}\}$ basis.
+\begin{equation}
+    \rho = \begin{bmatrix}
+        1 &0\\
+        0&0
+    \end{bmatrix}
+\end{equation}
+Equivalently, the state in the $\{\ket{+}, \ket{-}\}$:
+\begin{equation}
+    \rho = \begin{bmatrix}
+        1/2 & 1/2\\
+        1/2 & 1/2
+    \end{bmatrix}
+\end{equation}
+
+For this matrix, you can find a basis-changing unitary $U$, such that
+
+\begin{equation}
+    U\rho U^\dagger = \begin{bmatrix}
+        1 & 0\\
+        0 & 0
+    \end{bmatrix}
+\end{equation}
+
+
+You can check whether a density matrix $\rho$ is pure or not by checking $Tr(\rho^2)\in [1/d, 1]$. If it is 1, it is pure; otherwise, it is mixed.
+
+What is the maximally mixed state of qubits:
+\begin{equation}
+    \rho = \begin{bmatrix}
+        1/2 & 0\\
+        0 & 1/2
+    \end{bmatrix}
+\end{equation}
+
+But for this matrix, for all unitary $U$, 
+
+\begin{equation}
+    U\rho U^\dagger = \begin{bmatrix}
+        1/2 & 0\\
+        0 & 1/2
+    \end{bmatrix}
+\end{equation}
+
+\section{Entropy}
+
+We can define the von Neumann entropy as
+\begin{equation}
+\begin{split}
+    S(\rho)&=Tr(-\rho\log \rho)\\
+    S(\rho)&=Tr(-U\rho U^\dagger U \log \rho U^\dagger)\\
+\end{split}
+\end{equation}
+
+What is the difference between a density matrix $\rho$ and a classical probability distribution?
+
+\begin{equation}
+    \rho = \begin{bmatrix}
+        a & 0 & 0 & 0\\
+        0 & b & 0 & 0\\
+        0 & 0 & c & 0\\
+        0 & 0 & 0 & 1-a-b-c\\
+    \end{bmatrix}
+\end{equation}
+
+If you calculate the Von Neumann entropy, you should get back the Shannon Entropy:
+\begin{equation}
+    S(\rho) = H(X) = -\sum_p p\log p
+\end{equation}
+
+But this is not true generally, \begin{equation}
+    \rho = \begin{bmatrix}
+        a & 0 & x & 0\\
+        0 & b & 0 & 0\\
+        x^* & 0 & c & 0\\
+        0 & 0 & 0 & 1-a-b-c\\
+    \end{bmatrix}
+\end{equation}
+
+We call the off-diagonal elements the \textbf{coherences}, or \textbf{Hidden quantum information}.
+
+\section{Quantum Key Distribution}
+
+Denotes $\{0, 1\}=\Sigma$
+
+Setting: There are two parties, Alice and Bob; they have access to a quantum channel and a classical broadcast channel.
+
+Remark that, usually, we use light to do quantum communication, where qubit states $\ket{0}, \ket{1}$ is encoded as light polarizations. Usually written as $\ket{V}, \ket{H}$. 
+
+Since it is a qubit, so we can write $\ket{D}=(\ket{V}+\ket{H})/\sqrt{2}$ and $\ket{A}=(\ket{V}-\ket{H})/\sqrt{2}$.
+
+Goal: To share a secret string with length $n$ $\mathbf{s}\in \Sigma^n$ between Alice and Bob. Where no one in the universe can ever possibly know $\mathbf{s}$. Even if some very powerful entity (Aliens) has full control over the quantum channel and classical channel.
+
+How to achieve it? 
+\begin{enumerate}
+    \item Alice prepares a state of light in either $\{\ket{V}, \ket{H}\}$ basis or $\{\ket{D}, \ket{A}\}$ basis. And she send to Bob
+
+    \item Bob acknowledges receipt of the state, and measures in either $\{\ket{V}, \ket{H}\}$ basis or $\{\ket{D}, \ket{A}\}$ basis.
+
+    \item Repeat for N times.
+
+    \item Sifting: Alice and Bob both announce all the \textbf{BASIS} of all the states she sends to Bob. Either $\{\ket{V}, \ket{H}\}$ basis or $\{\ket{D}, \ket{A}\}$ basis.
+
+    \item They keep all the states they agreed on, and discard all the states they don't agree on. (At the end of this stage, if the quantum channel is perfect, then we are done. However, life if not perfect.)
+
+    \item Estimate the error probability. Alice and Bob come up with a subset of states, they publicly announce their measurement result, and see what the error probability of the channel is.
+
+    \item If the Error is too large, they abort the protocol and start again. Otherwise, they proceed.
+
+    \item ...
+\end{enumerate}
+
+Questions:
+1. What is the ``small enough'' error that they can keep going?
+
+This ``small enough'' error is important because you don't know whether the errors are channel errors or whether some third party, Eve, the eavesdropper, are trying to get information from you.
+
+2. Once Alice and Bob confirm that the error is ``small enough'', how should they proceed to make sure Eve has no information about the string?
+
+Error correcting code, 1-way Entanglement Distillation Process.
+
+
+\bibliography{SPIR_Single_Database}% Produces the bibliography via BibTeX.
+
+\end{document}
+%
+% ****** End of file apssamp.tex ******

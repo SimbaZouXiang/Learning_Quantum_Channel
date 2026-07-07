@@ -1,0 +1,9 @@
+because 3 3-party, so we cannot use the proof.
+
+
+
+Assumptions: fix the database.
+
+Information-theoretical bound on Alice gaining extra information, with prob<\epsilon, Alice can get everything; otherwise, Alice gains very little information 
+
+With prob = 1-\epsilon, Alice gains less than xxxx of information.
