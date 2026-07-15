@@ -1,0 +1,310 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{preskill2018nisq}
+\citation{bharti2022nisq,cerezo2021variational}
+\citation{chuang1997prescription,mohseni2008tomography}
+\citation{benedetti2019pqc,cerezo2021variational,bharti2022nisq}
+\citation{beer2020training}
+\citation{khatri2019qaqc,sharma2020noiseresilience}
+\citation{greenbaum2015gst,chow2009randomized}
+\citation{schollwoeck2011DMRG,vidal2003slightly}
+\newlabel{FirstPage}{{}{1}{}{section*.1}{}}
+\@writefile{toc}{\contentsline {title}{Learning and Compressing a Quantum Circuit with Parametrized Quantum Circuits}{1}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {abstract}{Abstract}{1}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {}Motivation: characterizing noisy quantum processes in the NISQ era}{1}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {}Variational quantum machine learning as a channel model}{1}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {}Learning in the operator basis via the Pauli Transfer Matrix}{1}{section*.6}\protected@file@percent }
+\citation{zanardi2001entanglement,prosen2007operator,LOE_EE_Decreasing1}
+\citation{LOE_EE_Decreasing1}
+\citation{nielsen2010quantum}
+\citation{caro2022generalization}
+\citation{nahum2018operator,vonKeyserlingk2018operatorhydrodynamics,prosen2007operator}
+\citation{aharonov2023polynomial,deshpande2022tight}
+\citation{lloyd1996universal}
+\citation{khatri2019qaqc,caro2022generalization,sharma2020noiseresilience}
+\citation{kitaev1997quantum,watrous2018theory}
+\citation{kitaev1997quantum,watrous2018theory}
+\@writefile{toc}{\contentsline {subsection}{\numberline {}Contributions of this work}{2}{section*.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {}Outline}{2}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Theoretical Definitions}{2}{section*.9}\protected@file@percent }
+\newlabel{sec:theoretical_definition}{{II}{2}{}{section*.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Problem statement}{2}{section*.10}\protected@file@percent }
+\citation{watrous2018theory}
+\citation{watrous2009sdp}
+\citation{gilchrist2005distance,magesan2012characterizing}
+\citation{khatri2019qaqc,sharma2020noiseresilience}
+\citation{nielsen2010quantum}
+\citation{greenbaum2015gst,chow2009randomized}
+\citation{greenbaum2015gst}
+\citation{choi1975positive,jamiolkowski1972linear}
+\citation{watrous2018theory,gilchrist2005distance}
+\newlabel{eq:diamond}{{2}{3}{}{equation.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Why the diamond distance is not used as the training loss}{3}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C}Pauli transfer matrix and Frobenius loss}{3}{section*.12}\protected@file@percent }
+\newlabel{sec:PTM_and_Frobenius}{{II\,C}{3}{}{section*.12}{}}
+\newlabel{eq:pauli_orthogonality}{{3}{3}{}{equation.2.3}{}}
+\newlabel{eq:PTM_def}{{4}{3}{}{equation.2.4}{}}
+\newlabel{eq:FrobeniusR_definition}{{5}{3}{}{equation.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Relation to the diamond distance}{3}{section*.13}\protected@file@percent }
+\newlabel{eq:Choi_PTM_Frob}{{6}{3}{}{equation.2.6}{}}
+\citation{watrous2018theory}
+\citation{caro2022generalization}
+\citation{caro2022generalization}
+\citation{caro2022generalization}
+\newlabel{eq:Choi_1norm}{{7}{4}{}{equation.2.7}{}}
+\newlabel{eq:diamond_vs_Frob}{{8}{4}{}{equation.2.8}{}}
+\newlabel{eq:diamond_vs_PTM_Frob}{{9}{4}{}{equation.2.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {E}Training loss and its finite-sample estimator}{4}{section*.14}\protected@file@percent }
+\newlabel{eq:F_definition}{{10}{4}{}{equation.2.10}{}}
+\newlabel{eq:per_pair_loss}{{11}{4}{}{equation.2.11}{}}
+\newlabel{eq:F_as_expectation}{{12}{4}{}{equation.2.12}{}}
+\newlabel{eq:F_hat_estimator}{{13}{4}{}{equation.2.13}{}}
+\newlabel{eq:gen_def}{{14}{4}{}{equation.2.14}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Bounding the loss for PQC with the number of training samples}{4}{section*.15}\protected@file@percent }
+\newlabel{sec:Theoretical_Bounds}{{III}{4}{}{section*.15}{}}
+\citation{caro2022generalization}
+\citation{caro2022generalization}
+\citation{caro2022generalization,watrous2018theory}
+\citation{caro2022generalization}
+\citation{bartlett2002rademacher,mohri2018foundations}
+\citation{bartlett2002rademacher,mohri2018foundations}
+\citation{bartlett2002rademacher,mohri2018foundations}
+\citation{dudley1967sizes,vershynin2018hdp}
+\citation{dudley1967sizes,vershynin2018hdp}
+\newlabel{thm: Metric entropy bounds}{{III.3}{5}{\!\!\cite {caro2022generalization}}{equation.3.17}{}}
+\citation{zanardi2001entanglement,prosen2007operator}
+\citation{schollwoeck2011DMRG}
+\citation{mirsky1975trace}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Learnability and Local-operator Entanglement and Frobenius Distance}{6}{section*.16}\protected@file@percent }
+\newlabel{sec:learnability_and_entanglement_entropy}{{IV}{6}{}{section*.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Local-operator Entanglement and Frobenius Distance}{6}{section*.17}\protected@file@percent }
+\newlabel{sec:LOE_Frobenius}{{IV\,A}{6}{}{section*.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}A lower bound on $\norm {A-B}_F$ from LOE mismatch}{6}{section*.18}\protected@file@percent }
+\newlabel{eq:decomposition_AB}{{31}{6}{}{equation.4.31}{}}
+\newlabel{eq:overlap_CS}{{34}{6}{}{equation.4.34}{}}
+\citation{nahum2018operator,vonKeyserlingk2018operatorhydrodynamics}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}Entropy-to-spectrum control.}{7}{section*.19}\protected@file@percent }
+\newlabel{eq:schmidt_head_bound}{{35}{7}{}{equation.4.35}{}}
+\newlabel{eq:overlap_bound_flat}{{36}{7}{}{equation.4.36}{}}
+\newlabel{eq:Frobenius_between_AB_lower}{{38}{7}{}{equation.4.38}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1}Pauli-weight control of the Frobenius norm}{7}{section*.20}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}Frobenius-norm decay under local noise.}{7}{section*.21}\protected@file@percent }
+\newlabel{eq:Frobenius_norm_weight}{{42}{7}{}{equation.4.42}{}}
+\newlabel{eq:Frobenius_norm_weight_correction}{{43}{7}{}{equation.4.43}{}}
+\citation{LOE_EE_Decreasing1}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2}Joint LOE--weight bound and connection to the peak location}{8}{section*.22}\protected@file@percent }
+\newlabel{eq:joint_bound}{{44}{8}{}{equation.4.44}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Parametrized Quantum Circuit Structure}{8}{section*.23}\protected@file@percent }
+\newlabel{sec:PQC_topology}{{V}{8}{}{section*.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \raggedright  The ansatz PQC (with 3 layers) used in this paper. Each layer consists of an alternating two-site brickwork unitaries $U$. And $D_1$ represents a single-site depolarizing noise, $D_2$ represents a single-site dephasing noise.\relax }}{8}{figure.caption.24}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:Ansatz_circuit}{{1}{8}{\raggedright The ansatz PQC (with 3 layers) used in this paper. Each layer consists of an alternating two-site brickwork unitaries $U$. And $D_1$ represents a single-site depolarizing noise, $D_2$ represents a single-site dephasing noise.\relax }{figure.caption.24}{}}
+\newlabel{eq:Depolarizing_D_1}{{45}{8}{}{equation.5.45}{}}
+\newlabel{eq:axis_dephasing}{{48}{9}{}{equation.5.48}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Learning and Compressing Quantum Circuit with Ansatz PQC}{9}{section*.25}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Training Dataset Generation}{10}{section*.26}\protected@file@percent }
+\newlabel{sec:Training_dataset_generation}{{V\,B}{10}{}{section*.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C}Weight-1 sufficiency in the intermediate-noise regime}{10}{section*.27}\protected@file@percent }
+\newlabel{sec:intermediate_noise_sufficiency}{{V\,C}{10}{}{section*.27}{}}
+\citation{magesan2012characterizing,flammia2020pauli,harper2020efficient}
+\citation{nielsen2002simple,magesan2012characterizing,flammia2020pauli}
+\citation{nielsen2010quantum,watrous2018theory}
+\citation{nielsen2002simple,magesan2012characterizing,flammia2020pauli,harper2020efficient}
+\citation{flammia2020pauli,harper2020efficient}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}Key structural property: disjoint-support multiplicativity.}{11}{section*.28}\protected@file@percent }
+\newlabel{thm:disjoint_multiplicativity}{{V.2}{11}{Single-layer disjoint-support multiplicativity}{theorem.5.2}{}}
+\newlabel{eq:disjoint_mult}{{58}{11}{Single-layer disjoint-support multiplicativity}{equation.5.58}{}}
+\newlabel{cor:single_layer_identifiability}{{V.2.1}{11}{Single-layer identifiability}{corollary.5.2.1}{}}
+\newlabel{eq:Cl_clean}{{60}{11}{}{equation.5.60}{}}
+\citation{khatri2019qaqc,benedetti2019pqc}
+\citation{nahum2018operator,vonKeyserlingk2018operatorhydrodynamics,chen2018operator}
+\citation{flammia2011direct,huang2020predicting,mohseni2008tomography}
+\citation{Sontag1998,bochnak1998realalgebraic}
+\citation{nahum2018operator,vonKeyserlingk2018operatorhydrodynamics}
+\citation{greenbaum2015gst}
+\citation{nielsen2002simple,magesan2012characterizing}
+\newlabel{eq:conjugate_equal}{{61}{12}{}{equation.5.61}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}Extension to multi-layer PQCs.}{12}{section*.29}\protected@file@percent }
+\newlabel{eq:F_w_bound}{{63}{13}{}{equation.5.63}{}}
+\newlabel{eq:Fw_over_F1}{{64}{13}{}{equation.5.64}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Numerical Justification of using Weight-1 Pauli Strings}{13}{section*.30}\protected@file@percent }
+\newlabel{sec:weight1_numerical}{{V\,D}{13}{}{section*.30}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Compressing Harr Random Unitaries with Noise}{13}{section*.32}\protected@file@percent }
+\newlabel{sec:Numerical_result_Random_U}{{VI}{13}{}{section*.32}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \raggedright  Mean Frobenius distance $d_F(M_{\rm  out}, M_{\rm  target})$ between model PQC and target PQC outputs versus the target PQC depth $L_{\rm  target}$ for five training-set choices ($N=8$ qubits, $T_{\rm  model}=3$, $240$ epochs): the set of full weight-1 Pauli strings(\textit  {w1, 24}), full weight-2 Pauli strings (\textit  {w2, 252}), their union (\textit  {w1+w2, 276}), and the randomly sampled Pauli strings baselines of matched size (\textit  {24/276 random}), evaluated on three held-out sets (arranged in columns: complete weight-1 basis, complete weight-2 basis, $500$ random Paulis inputs) at two depolarizing strengths (arranged in rows: $p_{\rm  depol}\in \{0.01, 0.05\}$).\relax }}{14}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:five_variant_compare}{{2}{14}{\raggedright Mean Frobenius distance $d_F(M_{\rm out}, M_{\rm target})$ between model PQC and target PQC outputs versus the target PQC depth $L_{\rm target}$ for five training-set choices ($N=8$ qubits, $T_{\rm model}=3$, $240$ epochs): the set of full weight-1 Pauli strings(\textit {w1, 24}), full weight-2 Pauli strings (\textit {w2, 252}), their union (\textit {w1+w2, 276}), and the randomly sampled Pauli strings baselines of matched size (\textit {24/276 random}), evaluated on three held-out sets (arranged in columns: complete weight-1 basis, complete weight-2 basis, $500$ random Paulis inputs) at two depolarizing strengths (arranged in rows: $p_{\rm depol}\in \{0.01, 0.05\}$).\relax }{figure.caption.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Exact Channel Learning for 8 Sites}{14}{section*.33}\protected@file@percent }
+\newlabel{fig:Depolarizing_ChangeT_N_L_p_8_2_all}{{3a}{15}{\relax }{figure.caption.34}{}}
+\newlabel{sub@fig:Depolarizing_ChangeT_N_L_p_8_2_all}{{a}{15}{\relax }{figure.caption.34}{}}
+\newlabel{fig:Depolarizing_ChangeT_N_L_p_8_3_all}{{3b}{15}{\relax }{figure.caption.34}{}}
+\newlabel{sub@fig:Depolarizing_ChangeT_N_L_p_8_3_all}{{b}{15}{\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \raggedright  \leavevmode {\color  {royalfranceblue}since we have many pauli strings with small weights, I suggest report the average loss conditioned on the input Pauli weight w, and normalize each loss by the target output norm.}The learning result of using a shallower PQC with $N=8$ qubits to learn a random $L_{target}$-layer PQC with various depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf  {(a)} uses a 2-layer PQC, and Sub-figure \textbf  {(b)} uses a 3-layer PQC.\leavevmode {\color  {royalfranceblue}for all plots: fonts too small}\relax }}{15}{figure.caption.34}\protected@file@percent }
+\newlabel{fig:Depolarizing_ChangeT_8}{{3}{15}{\raggedright \yz {since we have many pauli strings with small weights, I suggest report the average loss conditioned on the input Pauli weight w, and normalize each loss by the target output norm.}The learning result of using a shallower PQC with $N=8$ qubits to learn a random $L_{target}$-layer PQC with various depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf {(a)} uses a 2-layer PQC, and Sub-figure \textbf {(b)} uses a 3-layer PQC.\yz {for all plots: fonts too small}\relax }{figure.caption.34}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Compressing a Quantum Circuit with 12 sites}{15}{section*.37}\protected@file@percent }
+\newlabel{fig:Depolarizing_learning_loss_trend_8_2_002}{{4a}{15}{\relax }{figure.caption.35}{}}
+\newlabel{sub@fig:Depolarizing_learning_loss_trend_8_2_002}{{a}{15}{\relax }{figure.caption.35}{}}
+\newlabel{fig:Depolarizing_learning_loss_trend_8_3_002}{{4b}{15}{\relax }{figure.caption.35}{}}
+\newlabel{sub@fig:Depolarizing_learning_loss_trend_8_3_002}{{b}{15}{\relax }{figure.caption.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \raggedright  Example of the trend of the learning loss of using a shallower PQC to learn a random $L_{target}$-layer PQC with depolarizing probability $p_{depolar}=0.02$. Sub-figure \textbf  {(a)} uses a 2-layer PQC and Sub-figure \textbf  {(b)} uses a 3-layer PQC.\relax }}{15}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:Depolarizing_learning_loss_trend}{{4}{15}{\raggedright Example of the trend of the learning loss of using a shallower PQC to learn a random $L_{target}$-layer PQC with depolarizing probability $p_{depolar}=0.02$. Sub-figure \textbf {(a)} uses a 2-layer PQC and Sub-figure \textbf {(b)} uses a 3-layer PQC.\relax }{figure.caption.35}{}}
+\newlabel{fig:Dephasing_ChangeT_N_L_p_8_2_all}{{5a}{16}{\relax }{figure.caption.36}{}}
+\newlabel{sub@fig:Dephasing_ChangeT_N_L_p_8_2_all}{{a}{16}{\relax }{figure.caption.36}{}}
+\newlabel{fig:Dephasing_ChangeT_N_L_p_8_3_all}{{5b}{16}{\relax }{figure.caption.36}{}}
+\newlabel{sub@fig:Dephasing_ChangeT_N_L_p_8_3_all}{{b}{16}{\relax }{figure.caption.36}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \raggedright  The learning result of using a shallower PQC with $N=8$ qubits to learn a random $L_{target}$-layer PQC with various dephasing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf  {(a)} uses a 2-layer PQC, and Sub-figure \textbf  {(b)} uses a 3-layer PQC.\relax }}{16}{figure.caption.36}\protected@file@percent }
+\newlabel{fig:Dephasing_ChangeT_8}{{5}{16}{\raggedright The learning result of using a shallower PQC with $N=8$ qubits to learn a random $L_{target}$-layer PQC with various dephasing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf {(a)} uses a 2-layer PQC, and Sub-figure \textbf {(b)} uses a 3-layer PQC.\relax }{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C}Compressing a Quantum Circuit with 30 sites}{16}{section*.40}\protected@file@percent }
+\newlabel{fig:Depolarizing_ChangeT_N_L_p_12_2_all}{{6a}{16}{\relax }{figure.caption.38}{}}
+\newlabel{sub@fig:Depolarizing_ChangeT_N_L_p_12_2_all}{{a}{16}{\relax }{figure.caption.38}{}}
+\newlabel{fig:Depolarizing_ChangeT_N_L_p_12_3_all}{{6b}{16}{\relax }{figure.caption.38}{}}
+\newlabel{sub@fig:Depolarizing_ChangeT_N_L_p_12_3_all}{{b}{16}{\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \raggedright  The learning result of using a shallower PQC with $N=12$ qubits with truncation $d_{max}=64, \epsilon _{cutoff}=10^{-5}$ to learn a random $L_{target}$-layer PQC with various depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf  {(a)} uses a 2-layer PQC, and Sub-figure \textbf  {(b)} uses a 3-layer PQC.\relax }}{16}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:Depolarizing_ChangeT_12}{{6}{16}{\raggedright The learning result of using a shallower PQC with $N=12$ qubits with truncation $d_{max}=64, \epsilon _{cutoff}=10^{-5}$ to learn a random $L_{target}$-layer PQC with various depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf {(a)} uses a 2-layer PQC, and Sub-figure \textbf {(b)} uses a 3-layer PQC.\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \raggedright  The average Frobenius distance between passing through a weight-1 Pauli string through a $T_{PQC}$ layer PQC with and without truncation, with depolarizing noise $p=0.04$. \leavevmode {\color  {blue}Not seen convergence with bond dimension?} \leavevmode {\color  {purple}I do not fully understand this comment.}\relax }}{16}{figure.caption.39}\protected@file@percent }
+\newlabel{fig:Truncation_error_N_12}{{7}{16}{\raggedright The average Frobenius distance between passing through a weight-1 Pauli string through a $T_{PQC}$ layer PQC with and without truncation, with depolarizing noise $p=0.04$. \yijian {Not seen convergence with bond dimension?} \simba {I do not fully understand this comment.}\relax }{figure.caption.39}{}}
+\citation{nahum2018operator,vonKeyserlingk2018operatorhydrodynamics}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \raggedright  The learning result of using a shallower PQC with $N=30$ qubits with truncation $d_{max}=32, \epsilon _{cutoff}=10^{-5}$ to learn a random $L_{target}$-layer PQC with various depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings.\relax }}{17}{figure.caption.41}\protected@file@percent }
+\newlabel{fig:Depolarizing_ChangeT_N_L_p_30_3_all}{{8}{17}{\raggedright The learning result of using a shallower PQC with $N=30$ qubits with truncation $d_{max}=32, \epsilon _{cutoff}=10^{-5}$ to learn a random $L_{target}$-layer PQC with various depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings.\relax }{figure.caption.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Quantum Channel Learning with small depolarizing noise}{17}{section*.42}\protected@file@percent }
+\newlabel{sec:Numerical_result_Lindbladian}{{VI\,D}{17}{}{section*.42}{}}
+\newlabel{fig:Dephasing_ChangeT_N_L_p_8_2_all_smallp}{{9a}{17}{\relax }{figure.caption.43}{}}
+\newlabel{sub@fig:Dephasing_ChangeT_N_L_p_8_2_all_smallp}{{a}{17}{\relax }{figure.caption.43}{}}
+\newlabel{fig:Dephasing_ChangeT_N_L_p_8_3_all_smallp}{{9b}{17}{\relax }{figure.caption.43}{}}
+\newlabel{sub@fig:Dephasing_ChangeT_N_L_p_8_3_all_smallp}{{b}{17}{\relax }{figure.caption.43}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \raggedright  The learning result of using a shallower PQC with $N=8$ qubits to learn a random $L_{target}$-layer PQC with tiny depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf  {(a)} uses a 2-layer PQC, and Sub-figure \textbf  {(b)} uses a 3-layer PQC.\relax }}{17}{figure.caption.43}\protected@file@percent }
+\newlabel{fig:Dephasing_ChangeT_8_smallp}{{9}{17}{\raggedright The learning result of using a shallower PQC with $N=8$ qubits to learn a random $L_{target}$-layer PQC with tiny depolarizing noise. Solid lines represent the final average learning loss with all weight-1 Pauli strings, and dashed lines represent the final testing loss for 200 randomly sampled Pauli strings. Sub-figure \textbf {(a)} uses a 2-layer PQC, and Sub-figure \textbf {(b)} uses a 3-layer PQC.\relax }{figure.caption.43}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Theoretical Prediction on the location of the peak}{17}{section*.44}\protected@file@percent }
+\newlabel{sec:peak_prediction}{{VII}{17}{}{section*.44}{}}
+\citation{nahum2018operator,vonKeyserlingk2018operatorhydrodynamics,chen2018operator}
+\citation{nahum2018operator}
+\citation{LOE_EE_Decreasing1,noh2020efficient}
+\citation{noh2020efficient}
+\newlabel{eq:D1_on_Pauli}{{66}{18}{}{equation.7.66}{}}
+\newlabel{eq:mean_weight_lightcone}{{67}{18}{}{equation.7.67}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Strict Lower Bound}{18}{section*.45}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Target max-LOE ansatz}{18}{section*.46}\protected@file@percent }
+\newlabel{eq:aL_ansatz_new}{{71}{18}{}{equation.7.71}{}}
+\newlabel{eq:exponent_sum}{{72}{18}{}{equation.7.72}{}}
+\newlabel{eq:aL_closed}{{73}{18}{}{equation.7.73}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Layer $L_{\mathrm  {LOE}}^\star $ at which the target's max bipartite LOE is maximized, as a function of per-layer depolarizing strength $p$, from Eq.\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:LOE_star}\unskip \@@italiccorr )}}. The small-$p$ asymptote $L_{\mathrm  {LOE}}^\star \sim \sqrt  {3/(8p)}$ is dominant below $p\lesssim 0.05$. \leavevmode {\color  {red}Figure regenerated from the corrected Eq.\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:LOE_star}\unskip \@@italiccorr )}}, $L^\star =(-1+\sqrt  {1-2/\ln q})/2$; values are $\sim $4--10\% below the earlier draft's curve (e.g.\ $5.86\to 5.62$ at $p=0.01$), while the small-$p$ asymptote is unchanged.}\relax }}{19}{figure.caption.47}\protected@file@percent }
+\newlabel{fig:max_LOE_layer}{{10}{19}{Layer $L_{\mathrm {LOE}}^\star $ at which the target's max bipartite LOE is maximized, as a function of per-layer depolarizing strength $p$, from Eq.~\eqref {eq:LOE_star}. The small-$p$ asymptote $L_{\mathrm {LOE}}^\star \sim \sqrt {3/(8p)}$ is dominant below $p\lesssim 0.05$. \todoflag {Figure regenerated from the corrected Eq.~\eqref {eq:LOE_star}, $L^\star =(-1+\sqrt {1-2/\ln q})/2$; values are $\sim $4--10\% below the earlier draft's curve (e.g.\ $5.86\to 5.62$ at $p=0.01$), while the small-$p$ asymptote is unchanged.}\relax }{figure.caption.47}{}}
+\newlabel{eq:LOE_star}{{75}{19}{}{equation.7.75}{}}
+\newlabel{eq:pm_half_scaling}{{76}{19}{}{equation.7.76}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C}Target and model Frobenius-norm profiles}{19}{section*.48}\protected@file@percent }
+\newlabel{eq:A_norm_growing}{{77}{19}{}{equation.7.77}{}}
+\newlabel{eq:B_norm_growing}{{78}{19}{}{equation.7.78}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {D}Learning-loss peak from the joint LOE--weight bound}{19}{section*.49}\protected@file@percent }
+\newlabel{eq:peak_formula_corrected}{{79}{19}{}{equation.7.79}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}Derivation of the optimal $p'$: exact variational problem.}{19}{section*.50}\protected@file@percent }
+\newlabel{eq:b_of_beta}{{80}{19}{}{equation.7.80}{}}
+\newlabel{eq:dF2_of_beta}{{81}{19}{}{equation.7.81}{}}
+\newlabel{eq:beta_star_exact}{{82}{19}{}{equation.7.82}{}}
+\citation{noh2020efficient,LOE_EE_Decreasing1}
+\citation{aharonov2023polynomial,deshpande2022tight}
+\newlabel{eq:delta_correction}{{84}{20}{}{equation.7.84}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}Norm-matching as a physically motivated approximation.}{20}{section*.51}\protected@file@percent }
+\newlabel{eq:pprime_match_new}{{86}{20}{}{equation.7.86}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}First-order-refined $p'_\star $ from Eq.\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:delta_correction}\unskip \@@italiccorr )}}.}{20}{section*.52}\protected@file@percent }
+\newlabel{eq:pprime_first_order}{{88}{20}{}{equation.7.88}{}}
+\@writefile{toc}{\contentsline {paragraph}{\numberline {}Accuracy assessment via numerical comparison.}{20}{section*.53}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {E}Comparison to numerics and scope}{20}{section*.55}\protected@file@percent }
+\citation{LOE_EE_Decreasing1,noh2020efficient}
+\citation{noh2020efficient}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Comparison of $L_{\qopname  \relax m{max}}$ predictions under naive norm-matching (A, Eq.\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:pprime_match_new}\unskip \@@italiccorr )}}) and first-order-refined (B, Eq.\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:pprime_first_order}\unskip \@@italiccorr )}}\leavevmode {\color  {auditcolor}, $\beta $ clamped to $[0,1]$; the clamp is active for $p\le 0.003$}) prescriptions, with $v_E=\ln 4$ \leavevmode {\color  {auditcolor}and $L$ maximized continuously over $[T,60]$}. \leavevmode {\color  {red}Values recomputed directly from the prescription definitions (three independent recomputations agree); they differ from the earlier draft by at most $0.011$ in row (A) and $0.025$ in row (B) --- the draft's numbers were produced through the linearized-$p'$ route of Eqs.\nobreakspace  {}\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:pprime_match_new}\unskip \@@italiccorr )}}--\textup  {\hbox {\mathsurround \z@ \normalfont  (\ignorespaces \ref  {eq:pprime_first_order}\unskip \@@italiccorr )}}.}\relax }}{21}{table.caption.54}\protected@file@percent }
+\newlabel{tab:L_max_comparison}{{I}{21}{Comparison of $L_{\max }$ predictions under naive norm-matching (A, Eq.~\eqref {eq:pprime_match_new}) and first-order-refined (B, Eq.~\eqref {eq:pprime_first_order}\corrected {, $\beta $ clamped to $[0,1]$; the clamp is active for $p\le 0.003$}) prescriptions, with $v_E=\ln 4$ \corrected {and $L$ maximized continuously over $[T,60]$}. \todoflag {Values recomputed directly from the prescription definitions (three independent recomputations agree); they differ from the earlier draft by at most $0.011$ in row (A) and $0.025$ in row (B) --- the draft's numbers were produced through the linearized-$p'$ route of Eqs.~\eqref {eq:pprime_match_new}--\eqref {eq:pprime_first_order}.}\relax }{table.caption.54}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Learning Lindbladian Dynamics}{21}{section*.56}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Time-dependent Lindblad Master Equation}{21}{section*.57}\protected@file@percent }
+\newlabel{eq:TDME_Lindbladian}{{92}{21}{}{equation.8.92}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces \raggedright  The quantum circuit corresponding to the second-order Trotterization implementation of simulating a Lindblad Master equation in Eq.\nobreakspace  {}\ref  {eq:TDME_Lindbladian} with 2 layers.\relax }}{22}{figure.caption.58}\protected@file@percent }
+\newlabel{fig:Trotterization_Circuit}{{11}{22}{\raggedright The quantum circuit corresponding to the second-order Trotterization implementation of simulating a Lindblad Master equation in Eq.~\ref {eq:TDME_Lindbladian} with 2 layers.\relax }{figure.caption.58}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Learning the Trotterization of Lindbladian}{22}{section*.59}\protected@file@percent }
+\newlabel{eq:TDME_training_loss}{{99}{22}{}{equation.8.99}{}}
+\newlabel{fig:Learning_TDME_varies_gamma_time0.8_002_to_008_learning}{{12a}{23}{\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:Learning_TDME_varies_gamma_time0.8_002_to_008_learning}{{a}{23}{\relax }{figure.caption.60}{}}
+\newlabel{fig:Learning_TDME_varies_gamma_time61_to_6_learning}{{12b}{23}{\relax }{figure.caption.60}{}}
+\newlabel{sub@fig:Learning_TDME_varies_gamma_time61_to_6_learning}{{b}{23}{\relax }{figure.caption.60}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces \raggedright  The result of using a 3-layer PQC with $N=8$ sites to learn the Lindbladian circuit with 30-layer Trotterization, and compare with using a 3-layer Trotterization for different target time $t$ and different dissipative strength $\gamma $. Solid lines represent the $\text  {Loss}_{model}$, and dashed lines represent the $\text  {Loss}_{Trott, 3}$ for 300 randomly sampled Pauli strings. Sub-figure \textbf  {(a)} is for the evolution time from $t = 0.2$ to $t = 0.8$, and Sub-figure \textbf  {(b)} is for the evolution time from $t = 1$ to $t = 6$.\relax }}{23}{figure.caption.60}\protected@file@percent }
+\newlabel{fig:Learning_TDME_varies_gamma_time}{{12}{23}{\raggedright The result of using a 3-layer PQC with $N=8$ sites to learn the Lindbladian circuit with 30-layer Trotterization, and compare with using a 3-layer Trotterization for different target time $t$ and different dissipative strength $\gamma $. Solid lines represent the $\text {Loss}_{model}$, and dashed lines represent the $\text {Loss}_{Trott, 3}$ for 300 randomly sampled Pauli strings. Sub-figure \textbf {(a)} is for the evolution time from $t = 0.2$ to $t = 0.8$, and Sub-figure \textbf {(b)} is for the evolution time from $t = 1$ to $t = 6$.\relax }{figure.caption.60}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C}Learning Lindbladian dynamics for a large number of qubits}{23}{section*.61}\protected@file@percent }
+\newlabel{subsec:Learning_Lindbladian_large_N}{{VIII\,C}{23}{}{section*.61}{}}
+\newlabel{eq:TDME_test_losses_large_N}{{101}{24}{}{equation.8.101}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces \raggedright  Testing loss versus dissipative strength $\gamma $ at $N=30$, model depth $T=3$, target depth $L=30$ (second-order Trotter), one panel per evolution time $t\in \{0.2,\ldots  ,6.0\}$. Each curve aggregates 300 random Pauli test inputs (PQC evaluation is on the order of 30--200 inputs depending on the shard); shaded error bars are $\pm $ standard error of the mean. Solid blue: PQC testing loss $\text  {Loss}_{model}^{\text  {test}}$; dashed blue: PQC \emph  {training} loss (best epoch on the $3N$ weight-$1$ inputs); green triangles: $3$-layer first-order Trotter $\text  {Loss}_{Trott,3}^{(1),\text  {test}}$; red squares: $3$-layer second-order Trotter $\text  {Loss}_{Trott,3}^{(2),\text  {test}}$.\relax }}{25}{figure.caption.62}\protected@file@percent }
+\newlabel{fig:pqc_vs_trotter_N30}{{13}{25}{\raggedright Testing loss versus dissipative strength $\gamma $ at $N=30$, model depth $T=3$, target depth $L=30$ (second-order Trotter), one panel per evolution time $t\in \{0.2,\ldots ,6.0\}$. Each curve aggregates 300 random Pauli test inputs (PQC evaluation is on the order of 30--200 inputs depending on the shard); shaded error bars are $\pm $ standard error of the mean. Solid blue: PQC testing loss $\text {Loss}_{model}^{\text {test}}$; dashed blue: PQC \emph {training} loss (best epoch on the $3N$ weight-$1$ inputs); green triangles: $3$-layer first-order Trotter $\text {Loss}_{Trott,3}^{(1),\text {test}}$; red squares: $3$-layer second-order Trotter $\text {Loss}_{Trott,3}^{(2),\text {test}}$.\relax }{figure.caption.62}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces \raggedright  Heatmaps of the log-ratio $\log _{10}(\text  {Trotter loss}/\text  {PQC testing loss})$ over the $(t,\gamma )$ grid at $N=30$, $T=3$. Positive (red) entries denote the PQC having a lower testing loss, negative (blue) the Trotter baseline being lower. \textbf  {Left:} versus the shape-matched first-order Trotter; the PQC is better essentially everywhere. \textbf  {Right:} versus the second-order Trotter; the PQC is dominated at short $t$ (regime where Strang splitting is nearly exact) and tied at intermediate $t$. The deep red at long $t$ should be read against Fig.\nobreakspace  {}\ref  {fig:pqc_vs_trotter_N30} and the training-loss diagnostic discussed in the text.\relax }}{25}{figure.caption.63}\protected@file@percent }
+\newlabel{fig:heatmap_pqc_vs_trotter}{{14}{25}{\raggedright Heatmaps of the log-ratio $\log _{10}(\text {Trotter loss}/\text {PQC testing loss})$ over the $(t,\gamma )$ grid at $N=30$, $T=3$. Positive (red) entries denote the PQC having a lower testing loss, negative (blue) the Trotter baseline being lower. \textbf {Left:} versus the shape-matched first-order Trotter; the PQC is better essentially everywhere. \textbf {Right:} versus the second-order Trotter; the PQC is dominated at short $t$ (regime where Strang splitting is nearly exact) and tied at intermediate $t$. The deep red at long $t$ should be read against Fig.~\ref {fig:pqc_vs_trotter_N30} and the training-loss diagnostic discussed in the text.\relax }{figure.caption.63}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Quantum System coupled to Baths}{25}{section*.64}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A}Setup for Learning an Open-system coupled to a bath}{26}{section*.65}\protected@file@percent }
+\newlabel{sec:setup_for_learning_bath}{{IX\,A}{26}{}{section*.65}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B}Results}{26}{section*.66}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {X}Conclusion}{26}{section*.68}\protected@file@percent }
+\bibdata{Quantum_Channel_LearningNotes,Quantum_Channel_Learning}
+\bibcite{preskill2018nisq}{{1}{2018}{{Preskill}}{{}}}
+\bibcite{bharti2022nisq}{{2}{2022}{{Bharti\ \emph  {et~al.}}}{{Bharti, Cervera-Lierta, Kyaw, Haug, Alperin-Lea, Anand, Degroote, Heimonen, Kottmann, Menke, Mok, Sim, Kwek,\ and\ Aspuru-Guzik}}}
+\bibcite{cerezo2021variational}{{3}{2021}{{Cerezo\ \emph  {et~al.}}}{{Cerezo, Arrasmith, Babbush, Benjamin, Endo, Fujii, McClean, Mitarai, Yuan, Cincio,\ and\ Coles}}}
+\bibcite{chuang1997prescription}{{4}{1997}{{Chuang\ and\ Nielsen}}{{}}}
+\bibcite{mohseni2008tomography}{{5}{2008}{{Mohseni\ \emph  {et~al.}}}{{Mohseni, Rezakhani,\ and\ Lidar}}}
+\bibcite{benedetti2019pqc}{{6}{2019}{{Benedetti\ \emph  {et~al.}}}{{Benedetti, Lloyd, Sack,\ and\ Fiorentini}}}
+\bibcite{beer2020training}{{7}{2020}{{Beer\ \emph  {et~al.}}}{{Beer, Bondarenko, Farrelly, Osborne, Salzmann, Scheiermann,\ and\ Wolf}}}
+\bibcite{khatri2019qaqc}{{8}{2019}{{Khatri\ \emph  {et~al.}}}{{Khatri, LaRose, Poremba, Cincio, Sornborger,\ and\ Coles}}}
+\bibcite{sharma2020noiseresilience}{{9}{2020}{{Sharma\ \emph  {et~al.}}}{{Sharma, Khatri, Cerezo,\ and\ Coles}}}
+\bibcite{greenbaum2015gst}{{10}{2015}{{Greenbaum}}{{}}}
+\bibcite{chow2009randomized}{{11}{2009}{{Chow\ \emph  {et~al.}}}{{Chow, Gambetta, Tornberg, Koch, Bishop, Houck, Johnson, Frunzio, Girvin,\ and\ Schoelkopf}}}
+\bibcite{schollwoeck2011DMRG}{{12}{2011}{{Schollw{\"o}ck}}{{}}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces \raggedright  The final losses of learning an open-system that is coupled to a bath with $N=10$, with the construction described in section\nobreakspace  {}\ref  {sec:setup_for_learning_bath}. \leavevmode {\color  {auditcolor}We see very clearly that for $T = L_{target}$ and $g=0$, the learning process can be done perfectly. For $g>0$, the hardest case for learning is always at small $g$, where the channel is weakly non-unitary. When the bath coupling $g$ becomes larger, the learning and testing losses drop again.}\relax }}{27}{figure.caption.67}\protected@file@percent }
+\newlabel{fig:bath_sweep_N10_final_vs_g_all_TL}{{15}{27}{\raggedright The final losses of learning an open-system that is coupled to a bath with $N=10$, with the construction described in section~\ref {sec:setup_for_learning_bath}. \corrected {We see very clearly that for $T = L_{target}$ and $g=0$, the learning process can be done perfectly. For $g>0$, the hardest case for learning is always at small $g$, where the channel is weakly non-unitary. When the bath coupling $g$ becomes larger, the learning and testing losses drop again.}\relax }{figure.caption.67}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {}References}{27}{section*.69}\protected@file@percent }
+\bibcite{vidal2003slightly}{{13}{2003}{{Vidal}}{{}}}
+\bibcite{zanardi2001entanglement}{{14}{2001}{{Zanardi}}{{}}}
+\bibcite{prosen2007operator}{{15}{2007}{{Prosen\ and\ Pi{\v z}orn}}{{}}}
+\bibcite{LOE_EE_Decreasing1}{{16}{2020{}}{{Noh\ \emph  {et~al.}}}{{Noh, Jiang,\ and\ Fefferman}}}
+\bibcite{nielsen2010quantum}{{17}{2010}{{Nielsen\ and\ Chuang}}{{}}}
+\bibcite{caro2022generalization}{{18}{2022}{{Caro\ \emph  {et~al.}}}{{Caro, Huang, Cerezo, Sharma, Sornborger, Cincio,\ and\ Coles}}}
+\bibcite{nahum2018operator}{{19}{2018}{{Nahum\ \emph  {et~al.}}}{{Nahum, Vijay,\ and\ Haah}}}
+\bibcite{vonKeyserlingk2018operatorhydrodynamics}{{20}{2018}{{von Keyserlingk\ \emph  {et~al.}}}{{von Keyserlingk, Rakovszky, Pollmann,\ and\ Sondhi}}}
+\bibcite{aharonov2023polynomial}{{21}{2023}{{Aharonov\ \emph  {et~al.}}}{{Aharonov, Gao, Landau, Liu,\ and\ Vazirani}}}
+\bibcite{deshpande2022tight}{{22}{2022}{{Deshpande\ \emph  {et~al.}}}{{Deshpande, Gorshkov,\ and\ Fefferman}}}
+\bibcite{lloyd1996universal}{{23}{1996}{{Lloyd}}{{}}}
+\bibcite{kitaev1997quantum}{{24}{1997}{{Kitaev}}{{}}}
+\bibcite{watrous2018theory}{{25}{2018}{{Watrous}}{{}}}
+\bibcite{watrous2009sdp}{{26}{2009}{{Watrous}}{{}}}
+\bibcite{gilchrist2005distance}{{27}{2005}{{Gilchrist\ \emph  {et~al.}}}{{Gilchrist, Langford,\ and\ Nielsen}}}
+\bibcite{magesan2012characterizing}{{28}{2012}{{Magesan\ \emph  {et~al.}}}{{Magesan, Gambetta,\ and\ Emerson}}}
+\bibcite{choi1975positive}{{29}{1975}{{Choi}}{{}}}
+\bibcite{jamiolkowski1972linear}{{30}{1972}{{Jamio{\l }kowski}}{{}}}
+\bibcite{bartlett2002rademacher}{{31}{2002}{{Bartlett\ and\ Mendelson}}{{}}}
+\bibcite{mohri2018foundations}{{32}{2018}{{Mohri\ \emph  {et~al.}}}{{Mohri, Rostamizadeh,\ and\ Talwalkar}}}
+\bibcite{dudley1967sizes}{{33}{1967}{{Dudley}}{{}}}
+\bibcite{vershynin2018hdp}{{34}{2018}{{Vershynin}}{{}}}
+\bibcite{mirsky1975trace}{{35}{1975}{{Mirsky}}{{}}}
+\bibcite{flammia2020pauli}{{36}{2020}{{Flammia\ and\ Wallman}}{{}}}
+\bibcite{harper2020efficient}{{37}{2020}{{Harper\ \emph  {et~al.}}}{{Harper, Flammia,\ and\ Wallman}}}
+\bibcite{nielsen2002simple}{{38}{2002}{{Nielsen}}{{}}}
+\bibcite{chen2018operator}{{39}{2018}{{Chen\ and\ Zhou}}{{}}}
+\bibcite{flammia2011direct}{{40}{2011}{{Flammia\ and\ Liu}}{{}}}
+\bibcite{huang2020predicting}{{41}{2020}{{Huang\ \emph  {et~al.}}}{{Huang, Kueng,\ and\ Preskill}}}
+\bibcite{Sontag1998}{{42}{1998}{{Sontag}}{{}}}
+\bibcite{bochnak1998realalgebraic}{{43}{1998}{{Bochnak\ \emph  {et~al.}}}{{Bochnak, Coste,\ and\ Roy}}}
+\bibcite{noh2020efficient}{{44}{2020{}}{{Noh\ \emph  {et~al.}}}{{Noh, Jiang,\ and\ Fefferman}}}
+\bibstyle{apsrev4-2}
+\citation{REVTEX42Control}
+\citation{apsrev42Control}
+\newlabel{LastBibItem}{{44}{28}{}{section*.69}{}}
+\newlabel{LastPage}{{}{28}{}{}{}}
+\gdef \@abspage@last{28}

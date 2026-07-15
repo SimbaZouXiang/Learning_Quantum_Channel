@@ -1,3 +1,20 @@
+% ============================================================================
+% NOTE (2026-07-07 math audit, Claude): this side file is NOT \input into
+% Quantum_Channel_Learning.tex. A first-pass audit found several unresolved
+% math issues; they are marked with "% AUDIT:" comments at the relevant lines
+% below and should be fixed before any of this material is merged:
+%   1. Eq. (2): E(P_j) = sum_i R_ij P_j  ->  the summand must be P_i, and the
+%      index convention should match the main paper's R_{mu nu} (Eq. PTM_def),
+%      where the FIRST index labels the output component.
+%   2. Eq. (3): Tr[P_k P_j] = delta_jk drops the factor d = 2^N (the main
+%      paper's Eq. (pauli_orthogonality) has Tr[P_mu P_nu] = d delta_{mu nu}),
+%      so Tr[E(P_i) P_j] = d R_ji, not R_ij; the d's must be propagated.
+%   3. Eq. (5), 5th line: sum_j (sum_i R_ij)^2 is NOT ||R||_F^2 (the inner sum
+%      over i is taken before squaring); the replacement by ||R||_F is invalid.
+%   4. The step "sum_i R_ij <= 1" is unjustified for a generic CPTP map:
+%      individual normalized-PTM entries lie in [-1,1], but column sums can
+%      exceed 1; without it the alpha->infinity limit sign argument breaks.
+% ============================================================================
 We hypothesize that the learnability of a quantum channel is significantly related to the quantum magic attainable from the parametrized quantum circuits (PQC). There are many monotones in magic quantity, as we are working in operator space, including operator-stabilizer Rényi entropy (OSE). We quote the definition of OSE of an operator $A$ below.
 
 \begin{equation}

@@ -1,0 +1,146 @@
+[
+ {
+  "T": 2,
+  "p": 0.002,
+  "n_seeds": 3,
+  "Lmax_mean": 7.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.003,
+  "n_seeds": 3,
+  "Lmax_mean": 7.333333333333333,
+  "Lmax_std": 0.4714045207910317,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.005,
+  "n_seeds": 3,
+  "Lmax_mean": 4.666666666666667,
+  "Lmax_std": 0.9428090415820634,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.007,
+  "n_seeds": 3,
+  "Lmax_mean": 5.333333333333333,
+  "Lmax_std": 1.247219128924647,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.01,
+  "n_seeds": 3,
+  "Lmax_mean": 5.0,
+  "Lmax_std": 0.816496580927726,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.015,
+  "n_seeds": 3,
+  "Lmax_mean": 4.0,
+  "Lmax_std": 0.816496580927726,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.02,
+  "n_seeds": 3,
+  "Lmax_mean": 3.6666666666666665,
+  "Lmax_std": 0.9428090415820634,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.03,
+  "n_seeds": 3,
+  "Lmax_mean": 3.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 2,
+  "p": 0.05,
+  "n_seeds": 3,
+  "Lmax_mean": 3.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.002,
+  "n_seeds": 3,
+  "Lmax_mean": 7.333333333333333,
+  "Lmax_std": 0.4714045207910317,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.003,
+  "n_seeds": 3,
+  "Lmax_mean": 7.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.005,
+  "n_seeds": 3,
+  "Lmax_mean": 7.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.007,
+  "n_seeds": 3,
+  "Lmax_mean": 7.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.01,
+  "n_seeds": 3,
+  "Lmax_mean": 6.333333333333333,
+  "Lmax_std": 0.4714045207910317,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.015,
+  "n_seeds": 3,
+  "Lmax_mean": 4.666666666666667,
+  "Lmax_std": 0.4714045207910317,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.02,
+  "n_seeds": 3,
+  "Lmax_mean": 4.333333333333333,
+  "Lmax_std": 0.4714045207910317,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.03,
+  "n_seeds": 3,
+  "Lmax_mean": 4.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ },
+ {
+  "T": 3,
+  "p": 0.05,
+  "n_seeds": 3,
+  "Lmax_mean": 4.0,
+  "Lmax_std": 0.0,
+  "Lmax_pred_A": null
+ }
+]
